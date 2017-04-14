@@ -1,4 +1,5 @@
-import { Component, PropTypes } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Actions from '../../redux/PostsRedux'
 import Posts from '../../components/posts/Posts'
@@ -26,7 +27,12 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
-  posts: PropTypes.array
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string
+    })
+  )
 }
 
 function mapStateToProps(state) {
