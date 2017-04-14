@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Actions from '../../redux/PostsRedux'
 import Posts from '../../components/posts/Posts'
-import './Home.scss'
+import './HomeScreen.scss'
 
-class HomeContainer extends Component {
+class HomeScreen extends Component {
   addPost() {
     let post = {
       title: 'My own post',
@@ -26,7 +26,7 @@ class HomeContainer extends Component {
   }
 }
 
-HomeContainer.propTypes = {
+HomeScreen.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -47,4 +47,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

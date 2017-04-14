@@ -11,7 +11,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route
-        component={require('./home/Home').default}
+        component={require('./home/HomeScreen').default}
         path='/'
       />
     </Router>
