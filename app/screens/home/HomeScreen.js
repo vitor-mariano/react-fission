@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import Actions from '../../redux/PostsRedux'
 import Posts from '../../components/posts/Posts'
 import './HomeScreen.scss'
@@ -47,4 +48,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+)
