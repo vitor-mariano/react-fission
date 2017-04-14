@@ -1,8 +1,8 @@
 import { render } from 'react-dom'
 import {
   Route,
-  Router
-} from 'react-router'
+  BrowserRouter as Router
+} from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store, { history } from '../redux/store'
 import '../appearance/main.scss'

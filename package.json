@@ -31,7 +31,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
-    "react-router": "^3.0.0",
+    "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "reduxsauce": "^0.4.1",
