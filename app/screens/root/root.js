@@ -14,6 +14,9 @@ const root = (
           <li>
             <Link to='/'>Home</Link>
           </li>
+          <li>
+            <Link to='github'>GitHub</Link>
+          </li>
         </ul>
         {require('./routes').default}
       </div>
