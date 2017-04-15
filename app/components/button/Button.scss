@@ -1,0 +1,23 @@
+@import '../../appearance/colors';
+
+button {
+  background-color: $primary;
+  border-radius: 5px;
+  border-width: 0;
+  border-bottom: solid darken($primary, 15) 3px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+
+  &:hover {
+    background-color: lighten($primary, 10);
+    border-bottom-color: darken($primary, 5);
+  }
+
+  &:active {
+    background-color: darken($primary, 10);
+    border-bottom: solid darken($primary, 25) 1px;
+    margin-top: 2px;
+  }
+}

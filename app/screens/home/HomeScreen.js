@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Actions from '../../redux/PostsRedux'
-import Posts from '../../components/posts/Posts'
+import Posts from './Posts'
+import Button from '../../components/button/Button'
 import './HomeScreen.scss'
 
 class HomeScreen extends Component {
   addPost() {
-    let post = {
+    const post = {
       title: 'My own post',
       body: 'This is my own post'
     }
@@ -21,7 +22,7 @@ class HomeScreen extends Component {
       <div>
         <h1>Hello, React!</h1>
         <Posts data={this.props.posts} />
-        <button onClick={() => this.addPost()}>Add post</button>
+        <Button onClick={() => this.addPost()}>Add Post</Button>
       </div>
     )
   }

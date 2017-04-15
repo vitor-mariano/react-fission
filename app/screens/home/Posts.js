@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import './Posts.scss'
 
 class Posts extends Component {
   static get propTypes() {
@@ -15,7 +14,7 @@ class Posts extends Component {
     }
   }
 
-  renderItem(list) {
+  renderItems(list) {
     return R.addIndex(R.map)((post, index) => (
       <li key={index}>
         <h2>{post.title}</h2>
@@ -27,7 +26,7 @@ class Posts extends Component {
   render() {
     return (
       <ul>
-        {this.renderItem(this.props.data)}
+        {this.renderItems(this.props.data)}
       </ul>
     )
   }
