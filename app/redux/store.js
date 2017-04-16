@@ -1,15 +1,29 @@
-import { createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import { browserHistory } from 'react-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
 import { syncHistoryWithStore } from 'react-router-redux'
+import 'babel-polyfill'
 
 import rootReducer from './index'
+import rootSaga from '../sagas/'
 
 const defaultState = {}
 
 const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-const store = createStore(rootReducer, defaultState, reduxExtension)
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(
+  rootReducer,
+  defaultState,
+  compose(
+    applyMiddleware(sagaMiddleware),
+    reduxExtension
+  )
+)
+
+sagaMiddleware.run(rootSaga)
 
 const recoveredHistory = browserHistory || createBrowserHistory()
 

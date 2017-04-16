@@ -5,7 +5,7 @@ const { Types, Creators } = createActions({
   postAdd: ['post']
 })
 
-export const PostsType = Types
+export const PostsTypes = Types
 export default Creators
 
 export const INITIAL_STATE = Immutable({

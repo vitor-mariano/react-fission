@@ -27,6 +27,8 @@
     "dev": "./node_modules/.bin/webpack-dev-server"
   },
   "dependencies": {
+    "apisauce": "^0.11.0",
+    "babel-polyfill": "^6.23.0",
     "prop-types": "^15.5.8",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -34,6 +36,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
+    "redux-saga": "^0.14.6",
     "reduxsauce": "^0.4.1",
     "seamless-immutable": "^7.0.1"
   }
