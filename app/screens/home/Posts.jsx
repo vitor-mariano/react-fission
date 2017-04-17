@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import R from 'ramda';
 
@@ -14,7 +14,7 @@ class Posts extends Component {
     };
   }
 
-  renderItems(list) {
+  static renderItems(list) {
     return R.addIndex(R.map)((post, index) => (
       <li key={index}>
         <h2>{post.title}</h2>
@@ -26,7 +26,7 @@ class Posts extends Component {
   render() {
     return (
       <ul>
-        {this.renderItems(this.props.data)}
+        {Posts.renderItems(this.props.data)}
       </ul>
     );
   }

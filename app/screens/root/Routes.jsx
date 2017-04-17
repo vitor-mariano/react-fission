@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-function Routes() {
+export default function Routes() {
   return (
     <section>
       {/* eslint-disable */}
@@ -17,5 +17,3 @@ function Routes() {
     </section>
   );
 }
-
-export default Routes;

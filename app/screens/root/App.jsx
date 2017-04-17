@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Routes from './Routes';
 import '../../appearance/main.scss';
 
-function App() {
+export default function App() {
   return (
     <div>
       <ul>
@@ -18,5 +18,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

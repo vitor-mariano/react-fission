@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -34,7 +34,8 @@ HomeScreen.propTypes = {
       title: PropTypes.string.isRequired,
       body: PropTypes.string,
     }),
-  ),
+  ).isRequired,
+  addPost: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
