@@ -1,14 +1,14 @@
-import { takeLatest } from 'redux-saga'
-import HttpService from '../services/HttpService'
+import { takeLatest } from 'redux-saga';
+import HttpService from '../services/HttpService';
 
-import { GitHubTypes } from '../redux/GitHubRedux'
+import { GitHubTypes } from '../redux/GitHubRedux';
 
-import { githubGetRepos } from './GitHubSagas'
+import githubGetRepos from './GitHubSagas';
 
-const http = HttpService.create()
+const http = HttpService.create();
 
-export default function * root() {
+export default function* root() {
   yield [
-    takeLatest(GitHubTypes.GITHUB_GET_REPOS, githubGetRepos, http)
-  ]
+    takeLatest(GitHubTypes.GITHUB_GET_REPOS, githubGetRepos, http),
+  ];
 }

@@ -2,7 +2,7 @@ var ProvidePlugin = require('webpack').ProvidePlugin
 
 module.exports = {
   // Main file, where your project starts.
-  entry: './app/screens/index.js',
+  entry: './app/screens/index.jsx',
 
   // Output file, where your app should be compiled and imported by index.html.
   output: {
@@ -15,8 +15,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        // all the files finished with .js
-        test: /\.js$/,
+        // all the files finished with .js or .jsx
+        test: /\.jsx?$/,
 
         // except the node_modules folder
         exclude: /node_modules/,
@@ -30,13 +30,17 @@ module.exports = {
         }
       },
       {
-        // all files finished with .scss
-        test: /\.scss$/,
+        // all files finished with .scss or .sass
+        test: /\.scss$|\.sass$/,
 
         // should be converted by Sass
         loaders: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.scss', '.sass']
   },
 
   // Development server parameters:

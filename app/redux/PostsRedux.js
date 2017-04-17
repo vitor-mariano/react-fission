@@ -1,29 +1,29 @@
-import { createActions, createReducer } from 'reduxsauce'
-import Immutable from 'seamless-immutable'
+import { createActions, createReducer } from 'reduxsauce';
+import Immutable from 'seamless-immutable';
 
 const { Types, Creators } = createActions({
-  postAdd: ['post']
-})
+  postAdd: ['post'],
+});
 
-export const PostsTypes = Types
-export default Creators
+export const PostsTypes = Types;
+export default Creators;
 
 export const INITIAL_STATE = Immutable({
   list: [
     {
       title: 'My First Post',
-      body: 'This is my first post.'
+      body: 'This is my first post.',
     },
     {
       title: 'My Second Post',
-      body: 'This is my second post.'
-    }
-  ]
-})
+      body: 'This is my second post.',
+    },
+  ],
+});
 
 export const add = (state, { post }) =>
-  state.merge({ list: state.list.concat(post) })
+  state.merge({ list: state.list.concat(post) });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.POST_ADD]: add
-})
+  [Types.POST_ADD]: add,
+});

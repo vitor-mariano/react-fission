@@ -1,6 +1,6 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import R from 'ramda'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import R from 'ramda';
 
 class Posts extends Component {
   static get propTypes() {
@@ -8,10 +8,10 @@ class Posts extends Component {
       data: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string.isRequired,
-          body: PropTypes.string
-        })
-      ).isRequired
-    }
+          body: PropTypes.string,
+        }),
+      ).isRequired,
+    };
   }
 
   renderItems(list) {
@@ -20,7 +20,7 @@ class Posts extends Component {
         <h2>{post.title}</h2>
         <p>{post.body}</p>
       </li>
-    ), list)
+    ), list);
   }
 
   render() {
@@ -28,8 +28,8 @@ class Posts extends Component {
       <ul>
         {this.renderItems(this.props.data)}
       </ul>
-    )
+    );
   }
 }
 
-export default Posts
+export default Posts;

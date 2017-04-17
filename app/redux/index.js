@@ -1,10 +1,12 @@
-import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
+  /* eslint-disable */
   github: require('./GitHubRedux').reducer,
   posts: require('./PostsRedux').reducer,
-  routing: routerReducer
-})
+  routing: routerReducer,
+  /* eslint-enable */
+});
 
-export default rootReducer
+export default rootReducer;
