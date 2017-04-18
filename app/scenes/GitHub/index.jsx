@@ -23,7 +23,7 @@ class GitHubScreen extends Component {
   render() {
     return (
       <div>
-        <h1>GitHub</h1>
+        <h1>GitHub Scene</h1>
         <ul>
           {GitHubScreen.renderRepos(this.props.repos)}
         </ul>

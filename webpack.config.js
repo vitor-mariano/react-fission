@@ -51,7 +51,10 @@ module.exports = {
     contentBase: './public',
 
     // Port
-    port: 3333
+    port: 3333,
+
+    // Live Reload <3 Routes
+    historyApiFallback: true
   },
 
   plugins: [
