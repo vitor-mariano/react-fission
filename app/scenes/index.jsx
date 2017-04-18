@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store, { history } from '../redux/store';
-import App from './root/App';
+import App from './Root/App';
 
 const root = (
   <Provider store={store}>

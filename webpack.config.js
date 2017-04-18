@@ -2,7 +2,7 @@ var ProvidePlugin = require('webpack').ProvidePlugin
 
 module.exports = {
   // Main file, where your project starts.
-  entry: './app/screens/index.jsx',
+  entry: './app/scenes/index.jsx',
 
   // Output file, where your app should be compiled and imported by index.html.
   output: {

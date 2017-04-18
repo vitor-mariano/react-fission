@@ -6,11 +6,11 @@ export default function Routes() {
     <section>
       {/* eslint-disable */}
       <Route
-        component={require('../home/HomeScreen').default}
+        component={require('../Home/').default}
         exact path="/"
       />
       <Route
-        component={require('../github/GitHubScreen').default}
+        component={require('../GitHub/').default}
         path="/github"
       />
       {/* eslint-enable */}

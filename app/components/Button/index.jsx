@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 export default function Button(props) {
   return (
-    <button {...props}>{props.children}</button>
+    <button className="btn" {...props}>{props.children}</button>
   );
 }
 

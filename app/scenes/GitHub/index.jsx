@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import R from 'ramda';
 import GitHubActions from '../../redux/GitHubRedux';
-import './GitHubScreen.scss';
+import './styles.scss';
 
 class GitHubScreen extends Component {
   static renderRepos(repos) {
