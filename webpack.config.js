@@ -1,4 +1,6 @@
-var ProvidePlugin = require('webpack').ProvidePlugin
+var webpack = require('webpack')
+var ProvidePlugin = webpack.ProvidePlugin
+var DefinePlugin = webpack.DefinePlugin
 
 module.exports = {
   // Main file, where your project starts.
@@ -58,6 +60,11 @@ module.exports = {
   },
 
   plugins: [
+    // Environment Variables.
+    new DefinePlugin({
+      ENV: JSON.stringify(require('./.env.json'))
+    }),
+
     // The React class should be a global constant, without need to be imported in every component.
     new ProvidePlugin({
       React: 'react'
