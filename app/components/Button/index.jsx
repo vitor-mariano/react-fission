@@ -4,7 +4,7 @@ import './styles.scss';
 
 export default function Button(props) {
   return (
-    <button className="btn" {...props}>{props.children}</button>
+    <button className="custom-button" {...props}>{props.children}</button>
   );
 }
 
