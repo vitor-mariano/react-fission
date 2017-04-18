@@ -3,8 +3,8 @@ import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   /* eslint-disable */
-  github: require('./GitHubRedux').reducer,
-  posts: require('./PostsRedux').reducer,
+  github: require('./github/redux').reducer,
+  posts: require('./posts/redux').reducer,
   routing: routerReducer,
   /* eslint-enable */
 });

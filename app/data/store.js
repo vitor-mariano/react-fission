@@ -5,8 +5,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
 import 'babel-polyfill';
 
-import rootReducer from './index';
-import rootSaga from '../sagas/';
+import rootReducer from './redux';
+import rootSaga from './sagas';
 
 const defaultState = {};
 

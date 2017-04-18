@@ -1,9 +1,9 @@
 import { takeLatest } from 'redux-saga';
 import HttpService from '../services/HttpService';
 
-import { GitHubTypes } from '../redux/GitHubRedux';
+import { GitHubTypes } from './github/redux';
 
-import githubGetRepos from './GitHubSagas';
+import githubGetRepos from './github/sagas';
 
 const http = HttpService.create();
 

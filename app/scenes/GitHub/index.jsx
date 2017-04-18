@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import R from 'ramda';
-import GitHubActions from '../../redux/GitHubRedux';
+import GitHubActions from '../../data/github/redux';
 import './styles.scss';
 
 class GitHubScreen extends Component {

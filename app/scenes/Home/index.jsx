@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Actions from '../../redux/PostsRedux';
+import Actions from '../../data/posts/redux';
 import Posts from './components/Posts/';
 import Button from '../../components/Button/';
 import './styles.scss';

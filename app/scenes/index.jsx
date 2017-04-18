@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store, { history } from '../redux/store';
+import store, { history } from '../data/store';
 import App from './Root/App';
 
 const root = (
