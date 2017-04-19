@@ -1,17 +1,18 @@
-import apisauce from 'apisauce'
+import apisauce from 'apisauce';
+// import Config from 'Config';
 
-const create = (baseURL = 'https://api.github.com') => {
+const create = (baseURL = ENV.apiUrl) => {
   const http = apisauce.create({
     baseURL,
     // header: {},
-    timeout: 10000
-  })
+    timeout: 10000,
+  });
 
   return {
-    githubGetRepos: (username) => http.get(`/users/${username}/repos`)
-  }
-}
+    githubGetRepos: username => http.get(`/users/${username}/repos`),
+  };
+};
 
 export default {
-  create
-}
+  create,
+};
