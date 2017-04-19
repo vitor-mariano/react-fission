@@ -17,6 +17,7 @@ class GitHubScreen extends Component {
   }
 
   componentWillMount() {
+    document.title = 'GitHub Repositories';
     this.props.getRepos('octocat');
   }
 

@@ -8,6 +8,10 @@ import Button from '../../components/Button/';
 import './styles.scss';
 
 class HomeScreen extends Component {
+  componentWillMount() {
+    document.title = 'React Bootstrap';
+  }
+
   addPost() {
     const post = {
       title: 'My own post',
