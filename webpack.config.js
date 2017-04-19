@@ -1,8 +1,10 @@
-var ProvidePlugin = require('webpack').ProvidePlugin
+var webpack = require('webpack')
+var ProvidePlugin = webpack.ProvidePlugin
+var DefinePlugin = webpack.DefinePlugin
 
 module.exports = {
   // Main file, where your project starts.
-  entry: './app/screens/index.js',
+  entry: './app/scenes/index.jsx',
 
   // Output file, where your app should be compiled and imported by index.html.
   output: {
@@ -15,8 +17,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        // all the files finished with .js
-        test: /\.js$/,
+        // all the files finished with .js or .jsx
+        test: /\.jsx?$/,
 
         // except the node_modules folder
         exclude: /node_modules/,
@@ -30,13 +32,17 @@ module.exports = {
         }
       },
       {
-        // all files finished with .scss
-        test: /\.scss$/,
+        // all files finished with .scss or .sass
+        test: /\.scss$|\.sass$/,
 
         // should be converted by Sass
         loaders: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.scss', '.sass']
   },
 
   // Development server parameters:
@@ -47,10 +53,18 @@ module.exports = {
     contentBase: './public',
 
     // Port
-    port: 3333
+    port: 3333,
+
+    // Live Reload <3 Routes
+    historyApiFallback: true
   },
 
   plugins: [
+    // Environment Variables.
+    new DefinePlugin({
+      ENV: JSON.stringify(require('./.env.json'))
+    }),
+
     // The React class should be a global constant, without need to be imported in every component.
     new ProvidePlugin({
       React: 'react'
