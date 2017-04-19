@@ -28,7 +28,8 @@
   },
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "apisauce": "^0.11.0",
