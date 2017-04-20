@@ -1,6 +1,11 @@
 var webpack = require('webpack')
+var R = require('ramda')
+
 var ProvidePlugin = webpack.ProvidePlugin
 var DefinePlugin = webpack.DefinePlugin
+var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
+
+var ENV = process.env.NODE_ENV
 
 module.exports = {
   // Main file, where your project starts.
@@ -9,7 +14,6 @@ module.exports = {
   // Output file, where your app should be compiled and imported by index.html.
   output: {
     path: './public/',
-    publicPath: 'js/',
     filename: 'app.js'
   },
 
@@ -59,15 +63,27 @@ module.exports = {
     historyApiFallback: true
   },
 
-  plugins: [
-    // Environment Variables.
-    new DefinePlugin({
-      ENV: JSON.stringify(require('./.env.json'))
-    }),
+  devtool: 'source-map',
 
-    // The React class should be a global constant, without need to be imported in every component.
-    new ProvidePlugin({
-      React: 'react'
-    })
-  ]
+  plugins: R.concat(
+    [
+      // Environment Variables.
+      new DefinePlugin({
+        ENV: JSON.stringify(require('./.env.json'))
+      }),
+
+      // The React class should be a global constant, without need to be imported in every component.
+      new ProvidePlugin({
+        React: 'react'
+      })
+    ],
+    R.cond([
+      // Production plugins.
+      [R.equals('production'), R.always([
+        new UglifyJsPlugin()
+      ])],
+
+      [R.T, R.always([])]
+    ])(ENV)
+  )
 }
