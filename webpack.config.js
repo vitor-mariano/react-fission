@@ -59,6 +59,8 @@ module.exports = {
     historyApiFallback: true
   },
 
+  devtool: 'source-map',
+
   plugins: [
     // Environment Variables.
     new DefinePlugin({
