@@ -24,6 +24,10 @@ body {
       display: inline;
       margin: 0 1rem;
 
+      &:last-child {
+        margin-right: 0;
+      }
+
       a {
         color: $light;
         font-weight: bold;

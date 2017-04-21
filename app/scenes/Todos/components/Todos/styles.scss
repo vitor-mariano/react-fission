@@ -4,16 +4,73 @@
   background-color: $light;
   width: 500px;
 
-  .add-input {
+  .footer {
+    border-top: solid lightgray 1px;
+    color: silver;
+    display: flex;
+    font-size: .875rem;
+    padding: 1rem;
+    position: relative;
+
+    .controller {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin: 0 .5rem;
+
+          &.active button {
+            border-color: silver;
+          }
+
+          button {
+            background-color: transparent;
+            border: solid transparent 1px;
+            border-radius: .1875rem;
+            font-size: .875rem;
+            padding: .25rem .5rem;
+
+            &:hover {
+              border-color: rgba(silver, .5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      border-top: solid lightgray 1px;
+      font-size: 1.25rem;
+      padding: 1rem;
+    }
+  }
+
+  .todo-title-input {
     border-width: 0;
-    font-size: 1rem;
-    font-weight: 100;
-    padding: 0 1rem;
+    font-size: 1.25rem;
+    padding: 1rem;
     width: 100%;
-    height: 3.125rem;
 
     &::placeholder {
-      color: #c6c6c6;
+      color: silver;
     }
   }
 }
