@@ -7,8 +7,14 @@ export default function App() {
   return (
     <div>
       <nav className="main-menu">
-        <Link className="logo" to="/">
-          <img src="images/logo.svg" alt="React Fission" />
+        <Link
+          className="logo"
+          to="/"
+        >
+          <img
+            src="images/logo.svg"
+            alt="React Fission"
+          />
           <h1>React Fission</h1>
         </Link>
         <ul>
@@ -19,7 +25,13 @@ export default function App() {
             <Link to="github">API Example</Link>
           </li>
           <li>
-            <a href="https://github.com/matheusmariano/react-fission" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a
+              href="https://github.com/matheusmariano/react-fission"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>GitHub</span>
+            </a>
           </li>
         </ul>
       </nav>
