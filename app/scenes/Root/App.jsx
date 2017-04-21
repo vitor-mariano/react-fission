@@ -12,8 +12,8 @@ export default function App() {
           to="/"
         >
           <img
-            src="images/logo.svg"
             alt="React Fission"
+            src="images/logo.svg"
           />
           <h1>React Fission</h1>
         </Link>
@@ -22,13 +22,16 @@ export default function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="todos">Todos</Link>
+          </li>
+          <li>
             <Link to="github">API Example</Link>
           </li>
           <li>
             <a
               href="https://github.com/matheusmariano/react-fission"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <span>GitHub</span>
             </a>

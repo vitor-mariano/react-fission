@@ -1,0 +1,19 @@
+@import '../../../../appearance/main';
+
+.todos {
+  background-color: $light;
+  width: 500px;
+
+  .add-input {
+    border-width: 0;
+    font-size: 1rem;
+    font-weight: 100;
+    padding: 0 1rem;
+    width: 100%;
+    height: 3.125rem;
+
+    &::placeholder {
+      color: #c6c6c6;
+    }
+  }
+}

@@ -10,6 +10,10 @@ export default function Routes() {
         exact path="/"
       />
       <Route
+        component={require('../Todos/').default}
+        path="/todos"
+      />
+      <Route
         component={require('../GitHub/').default}
         path="/github"
       />
