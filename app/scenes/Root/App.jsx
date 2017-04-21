@@ -7,10 +7,10 @@ export default function App() {
   return (
     <div>
       <nav className="main-menu">
-        <div className="logo">
+        <Link className="logo" to="/">
           <img src="images/logo.svg" alt="React Fission" />
           <h1>React Fission</h1>
-        </div>
+        </Link>
         <ul>
           <li>
             <Link to="/">Home</Link>
