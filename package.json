@@ -1,9 +1,9 @@
 {
-  "name": "react-bootstrap",
+  "name": "react-fission",
   "version": "0.1.0",
   "description": "A fresh React project.",
   "main": "index.js",
-  "repository": "https://https://github.com/matheusmariano/react-bootstrap",
+  "repository": "https://https://github.com/matheusmariano/react-fission",
   "author": "Matheus Mariano <vmatheus.mariano@gmail.com>",
   "license": "MIT",
   "devDependencies": {

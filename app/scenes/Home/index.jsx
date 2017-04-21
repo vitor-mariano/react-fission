@@ -9,7 +9,7 @@ import './styles.scss';
 
 class HomeScreen extends Component {
   componentWillMount() {
-    document.title = 'React Bootstrap';
+    document.title = 'React Fission';
   }
 
   addPost() {
