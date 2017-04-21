@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CheckButton from '../../../../components/CheckButton/';
 import './styles.scss';
 
 class Todos extends Component {
@@ -12,8 +13,18 @@ class Todos extends Component {
           type="text"
         />
         <ol className="list">
-          <li>Whatever</li>
-          <li>Whatever</li>
+          <li className="checked">
+            <div className="check-button">
+              <CheckButton checked />
+            </div>
+            <span className="todo-title">Whatever</span>
+          </li>
+          <li>
+            <div className="check-button">
+              <CheckButton />
+            </div>
+            <span>Whatever</span>
+          </li>
         </ol>
         <div className="footer">
           <span>1 item left</span>
