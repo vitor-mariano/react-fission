@@ -35,14 +35,17 @@ export const add = (state, { todoTitle }) =>
     }, state.todos),
   });
 
-export const toggle = (state, { index }) =>
-  state.merge({
-    todos: R.over(
-      R.lensPath([index, 'done']),
-      R.not,
-      state.todos,
-    ),
-  });
+export const toggle = (state, action) => {
+  const index = R.findIndex(R.propEq('uuid', action.index), state.todos);
+
+  const todos = index > -1 ? R.over(
+    R.lensPath([index, 'done']),
+    R.not,
+    state.todos,
+  ) : state.todos;
+
+  return state.merge({ todos });
+};
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.TODOS_ADD]: add,

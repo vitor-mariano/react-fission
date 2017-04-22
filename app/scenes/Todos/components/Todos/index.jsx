@@ -64,7 +64,7 @@ class Todos extends Component {
   }
 
   renderTodos(todos) {
-    return R.addIndex(R.map)((todo, index) => (
+    return R.map(todo => (
       <li
         className={todo.done ? 'checked' : ''}
         key={todo.uuid}
@@ -72,7 +72,7 @@ class Todos extends Component {
         <div className="check-button">
           <CheckButton
             checked={todo.done}
-            onClick={() => this.todoCheckDidPress(index)}
+            onClick={() => this.todoCheckDidPress(todo.uuid)}
           />
         </div>
         <span className="todo-title">{todo.title}</span>
