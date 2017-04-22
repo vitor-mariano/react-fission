@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  color: $dark;
+  font-family: $title;
+}
+
+button,
+input,
+textarea {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.reset-button {
+  border-width: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+
+  &.flex-center {
+    justify-content: center;
+  }
+}
