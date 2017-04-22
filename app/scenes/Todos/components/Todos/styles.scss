@@ -32,16 +32,16 @@
         text-decoration: line-through;
       }
 
-      .check-button {
-        margin-right: .625rem;
-      }
-
-      .close-button::after {
+      &:hover .close-button::after {
         content: '\D7';
         font-size: 2rem;
         position: absolute;
         right: 1rem;
         top: .45rem;
+      }
+
+      .check-button {
+        margin-right: .625rem;
       }
     }
   }
