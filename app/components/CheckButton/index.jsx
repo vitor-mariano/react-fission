@@ -30,18 +30,6 @@ class CheckButton extends Component {
     };
   }
 
-  componentWillReceiveProps(props) {
-    const checked = props.checked;
-
-    if (checked) {
-      this.setChecked(checked);
-    }
-  }
-
-  setChecked(checked) {
-    this.setState({ checked });
-  }
-
   toggleCheck() {
     this.setState({
       checked: !this.state.checked,
