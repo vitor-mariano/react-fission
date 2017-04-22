@@ -7,10 +7,10 @@ import CheckButton from '../../../../components/CheckButton/';
 import './styles.scss';
 
 class Todos extends Component {
-  static countUndone(todos) {
+  static countTodosBy(done, todos) {
     return R.pipe(
       R.countBy(R.prop('done')),
-      R.prop('false'),
+      R.prop(R.toString(done)),
       R.defaultTo(0),
     )(todos);
   }
@@ -43,6 +43,10 @@ class Todos extends Component {
   addTodo(todoTitle) {
     this.props.addTodo(todoTitle);
     this.setTodoTitle('');
+  }
+
+  clearButtonDidClick() {
+    this.props.clearTodos();
   }
 
   removeTodoButtonDidClick(index) {
@@ -92,7 +96,8 @@ class Todos extends Component {
   }
 
   render() {
-    const count = Todos.countUndone(this.props.todos);
+    const done = Todos.countTodosBy(true, this.props.todos);
+    const undone = Todos.countTodosBy(false, this.props.todos);
 
     return (
       <div className="todos">
@@ -115,7 +120,7 @@ class Todos extends Component {
           }
         </ol>
         <div className="footer">
-          <span>{count} {count === 1 ? 'item' : 'items'} left</span>
+          <span>{undone} {undone === 1 ? 'item' : 'items'} left</span>
           <div className="controller">
             <ul>
               <li className={this.state.list === 'all' ? 'active' : ''}>
@@ -144,6 +149,17 @@ class Todos extends Component {
               </li>
             </ul>
           </div>
+          {
+            done > 0 ? (
+              <button
+                className="reset-button clear-done"
+                onClick={() => this.clearButtonDidClick()}
+                type="button"
+              >
+                <span>Clear completed</span>
+              </button>
+            ) : ''
+          }
         </div>
       </div>
     );
@@ -159,6 +175,7 @@ Todos.propTypes = {
     }),
   ).isRequired,
   addTodo: PropTypes.func.isRequired,
+  clearTodos: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
 };
@@ -172,6 +189,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addTodo: todoTitle => dispatch(TodosActions.todosAdd(todoTitle)),
+    clearTodos: () => dispatch(TodosActions.todosClear()),
     removeTodo: index => dispatch(TodosActions.todosRemove(index)),
     toggleTodo: index => dispatch(TodosActions.todosToggle(index)),
   };

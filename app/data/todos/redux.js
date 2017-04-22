@@ -5,6 +5,7 @@ import uuid from 'uuid/v1';
 
 const { Types, Creators } = createActions({
   todosAdd: ['todoTitle'],
+  todosClear: null,
   todosRemove: ['index'],
   todosToggle: ['index'],
 });
@@ -36,6 +37,11 @@ export const add = (state, { todoTitle }) =>
     }, state.todos),
   });
 
+export const clear = state =>
+  state.merge({
+    todos: R.filter(R.propEq('done', false), state.todos),
+  });
+
 export const remove = (state, action) => {
   const index = R.findIndex(R.propEq('uuid', action.index), state.todos);
 
@@ -58,6 +64,7 @@ export const toggle = (state, action) => {
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.TODOS_ADD]: add,
+  [Types.TODOS_CLEAR]: clear,
   [Types.TODOS_REMOVE]: remove,
   [Types.TODOS_TOGGLE]: toggle,
 });
