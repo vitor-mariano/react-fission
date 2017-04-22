@@ -1,6 +1,7 @@
 import { createActions, createReducer } from 'reduxsauce';
 import Immutable from 'seamless-immutable';
 import R from 'ramda';
+import uuid from 'uuid/v1';
 
 const { Types, Creators } = createActions({
   todosAdd: ['todoTitle'],
@@ -13,11 +14,13 @@ export default Creators;
 export const INITIAL_STATE = Immutable({
   todos: [
     {
+      uuid: uuid(),
       title: 'Whatever',
       done: true,
     },
     {
-      title: 'Whatever',
+      uuid: uuid(),
+      title: 'Hello',
       done: false,
     },
   ],
@@ -26,6 +29,7 @@ export const INITIAL_STATE = Immutable({
 export const add = (state, { todoTitle }) =>
   state.merge({
     todos: R.append({
+      uuid: uuid(),
       title: todoTitle,
       done: false,
     }, state.todos),

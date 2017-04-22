@@ -30,15 +30,27 @@ class CheckButton extends Component {
     };
   }
 
-  buttonDidClick(event) {
-    this.props.onClick(event);
-    this.toggleCheck();
+  componentWillReceiveProps(props) {
+    const checked = props.checked;
+
+    if (checked) {
+      this.setChecked(checked);
+    }
+  }
+
+  setChecked(checked) {
+    this.setState({ checked });
   }
 
   toggleCheck() {
     this.setState({
       checked: !this.state.checked,
     });
+  }
+
+  buttonDidClick(event) {
+    this.props.onClick(event);
+    this.toggleCheck();
   }
 
   render() {

@@ -15,12 +15,25 @@ class Todos extends Component {
     )(todos);
   }
 
+  static filterList(filter, list) {
+    return R.cond([
+      [R.equals('active'), () => R.filter(R.compose(R.not, R.prop('done')), list)],
+      [R.equals('completed'), () => R.filter(R.prop('done'), list)],
+      [R.T, R.always(list)],
+    ])(filter);
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
+      list: 'all',
       todoTitle: '',
     };
+  }
+
+  setList(list) {
+    this.setState({ list });
   }
 
   setTodoTitle(todoTitle) {
@@ -42,19 +55,19 @@ class Todos extends Component {
     }
   }
 
-  toggleTodo(index) {
-    this.props.toggleTodo(index);
-  }
-
   todoCheckDidPress(index) {
     this.toggleTodo(index);
+  }
+
+  toggleTodo(index) {
+    this.props.toggleTodo(index);
   }
 
   renderTodos(todos) {
     return R.addIndex(R.map)((todo, index) => (
       <li
         className={todo.done ? 'checked' : ''}
-        key={index}
+        key={todo.uuid}
       >
         <div className="check-button">
           <CheckButton
@@ -79,20 +92,42 @@ class Todos extends Component {
           value={this.state.todoTitle}
         />
         <ol className="list">
-          {this.renderTodos(this.props.todos)}
+          {
+            this.renderTodos(
+              Todos.filterList(
+                this.state.list,
+                this.props.todos,
+              ),
+            )
+          }
         </ol>
         <div className="footer">
           <span>{Todos.countUndone(this.props.todos)} items left</span>
           <div className="controller">
             <ul>
-              <li className="active">
-                <button type="button">All</button>
+              <li className={this.state.list === 'all' ? 'active' : ''}>
+                <button
+                  onClick={() => this.setList('all')}
+                  type="button"
+                >
+                  <span>All</span>
+                </button>
               </li>
-              <li>
-                <button type="button">Active</button>
+              <li className={this.state.list === 'active' ? 'active' : ''}>
+                <button
+                  onClick={() => this.setList('active')}
+                  type="button"
+                >
+                  <span>Active</span>
+                </button>
               </li>
-              <li>
-                <button type="button">Completed</button>
+              <li className={this.state.list === 'completed' ? 'active' : ''}>
+                <button
+                  onClick={() => this.setList('completed')}
+                  type="button"
+                >
+                  <span>Completed</span>
+                </button>
               </li>
             </ul>
           </div>
@@ -107,6 +142,7 @@ Todos.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       done: PropTypes.bool.isRequired,
+      uuid: PropTypes.string.isRequired,
     }),
   ).isRequired,
   addTodo: PropTypes.func.isRequired,
