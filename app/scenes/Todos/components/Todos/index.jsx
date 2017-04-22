@@ -45,6 +45,10 @@ class Todos extends Component {
     this.setTodoTitle('');
   }
 
+  removeTodoButtonDidClick(index) {
+    this.props.removeTodo(index);
+  }
+
   titleInputDidChange(event) {
     this.setTodoTitle(event.target.value);
   }
@@ -69,13 +73,20 @@ class Todos extends Component {
         className={todo.done ? 'checked' : ''}
         key={todo.uuid}
       >
-        <div className="check-button">
-          <CheckButton
-            checked={todo.done}
-            onClick={() => this.todoCheckDidPress(todo.uuid)}
-          />
+        <div className="flex">
+          <div className="check-button">
+            <CheckButton
+              checked={todo.done}
+              onClick={() => this.todoCheckDidPress(todo.uuid)}
+            />
+          </div>
+          <span className="todo-title">{todo.title}</span>
         </div>
-        <span className="todo-title">{todo.title}</span>
+        <button
+          className="reset-button close-button"
+          onClick={() => this.removeTodoButtonDidClick(todo.uuid)}
+          type="button"
+        />
       </li>
     ), todos);
   }
@@ -146,6 +157,7 @@ Todos.propTypes = {
     }),
   ).isRequired,
   addTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
 };
 
@@ -158,6 +170,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addTodo: todoTitle => dispatch(TodosActions.todosAdd(todoTitle)),
+    removeTodo: index => dispatch(TodosActions.todosRemove(index)),
     toggleTodo: index => dispatch(TodosActions.todosToggle(index)),
   };
 }

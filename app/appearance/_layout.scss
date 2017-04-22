@@ -23,6 +23,12 @@ button {
   text-align: center;
 }
 
+.reset-button {
+  border-width: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
 .flex {
   display: flex;
 

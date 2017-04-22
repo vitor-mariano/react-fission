@@ -24,7 +24,9 @@
       display: flex;
       border-top: solid lightgray 1px;
       font-size: 1.25rem;
+      justify-content: space-between;
       padding: 1rem;
+      position: relative;
 
       &.checked .todo-title {
         text-decoration: line-through;
@@ -32,6 +34,14 @@
 
       .check-button {
         margin-right: .625rem;
+      }
+
+      .close-button::after {
+        content: '\D7';
+        font-size: 2rem;
+        position: absolute;
+        right: 1rem;
+        top: .45rem;
       }
     }
   }
