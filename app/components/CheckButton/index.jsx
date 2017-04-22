@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import R from 'ramda';
 import './styles.scss';
 
 class CheckButton extends Component {
