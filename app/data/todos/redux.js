@@ -16,12 +16,12 @@ export const INITIAL_STATE = Immutable({
   todos: [
     {
       uuid: uuid(),
-      title: 'Whatever',
+      title: 'Learn React',
       done: true,
     },
     {
       uuid: uuid(),
-      title: 'Hello',
+      title: 'Start a new project',
       done: false,
     },
   ],
