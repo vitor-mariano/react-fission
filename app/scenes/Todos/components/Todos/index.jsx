@@ -7,6 +7,14 @@ import CheckButton from '../../../../components/CheckButton/';
 import './styles.scss';
 
 class Todos extends Component {
+  static countUndone(todos) {
+    return R.pipe(
+      R.countBy(R.prop('done')),
+      R.prop('false'),
+      R.defaultTo(0),
+    )(todos);
+  }
+
   constructor(props) {
     super(props);
 
@@ -34,23 +42,23 @@ class Todos extends Component {
     }
   }
 
-  todoCheckDidPress(index) {
-    this.toggleTodo(index);
-  }
-
   toggleTodo(index) {
     this.props.toggleTodo(index);
+  }
+
+  todoCheckDidPress(index) {
+    this.toggleTodo(index);
   }
 
   renderTodos(todos) {
     return R.addIndex(R.map)((todo, index) => (
       <li
-        className={todo.completed ? 'checked' : ''}
+        className={todo.done ? 'checked' : ''}
         key={index}
       >
         <div className="check-button">
           <CheckButton
-            checked={todo.completed}
+            checked={todo.done}
             onClick={() => this.todoCheckDidPress(index)}
           />
         </div>
@@ -74,7 +82,7 @@ class Todos extends Component {
           {this.renderTodos(this.props.todos)}
         </ol>
         <div className="footer">
-          <span>1 item left</span>
+          <span>{Todos.countUndone(this.props.todos)} items left</span>
           <div className="controller">
             <ul>
               <li className="active">
@@ -98,7 +106,7 @@ Todos.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      completed: PropTypes.bool.isRequired,
+      done: PropTypes.bool.isRequired,
     }),
   ).isRequired,
   addTodo: PropTypes.func.isRequired,

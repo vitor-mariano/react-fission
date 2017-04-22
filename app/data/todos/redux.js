@@ -14,11 +14,11 @@ export const INITIAL_STATE = Immutable({
   todos: [
     {
       title: 'Whatever',
-      completed: true,
+      done: true,
     },
     {
       title: 'Whatever',
-      completed: false,
+      done: false,
     },
   ],
 });
@@ -27,14 +27,14 @@ export const add = (state, { todoTitle }) =>
   state.merge({
     todos: R.append({
       title: todoTitle,
-      completed: false,
+      done: false,
     }, state.todos),
   });
 
 export const toggle = (state, { index }) =>
   state.merge({
     todos: R.over(
-      R.lensPath([index, 'completed']),
+      R.lensPath([index, 'done']),
       R.not,
       state.todos,
     ),
