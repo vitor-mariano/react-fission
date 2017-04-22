@@ -7,12 +7,14 @@ class CheckButton extends Component {
   static get defaultProps() {
     return {
       checked: false,
+      onClick: event => event,
     };
   }
 
   static get propTypes() {
     return {
       checked: PropTypes.bool,
+      onClick: PropTypes.func,
     };
   }
 
@@ -23,10 +25,13 @@ class CheckButton extends Component {
   constructor(props) {
     super(props);
 
-    this.state = R.pick(['checked'], props);
+    this.state = {
+      checked: props.checked,
+    };
   }
 
-  buttonDidClick() {
+  buttonDidClick(event) {
+    this.props.onClick(event);
     this.toggleCheck();
   }
 
@@ -40,7 +45,7 @@ class CheckButton extends Component {
     return (
       <button
         id="check-button"
-        onClick={() => this.buttonDidClick()}
+        onClick={event => this.buttonDidClick(event)}
         type="button"
       >
         {CheckButton.renderMark(this.state.checked)}

@@ -4,6 +4,7 @@ import R from 'ramda';
 
 const { Types, Creators } = createActions({
   todosAdd: ['todoTitle'],
+  todosToggle: ['index'],
 });
 
 export const TodosTypes = Types;
@@ -30,6 +31,16 @@ export const add = (state, { todoTitle }) =>
     }, state.todos),
   });
 
+export const toggle = (state, { index }) =>
+  state.merge({
+    todos: R.over(
+      R.lensPath([index, 'completed']),
+      R.not,
+      state.todos,
+    ),
+  });
+
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.TODOS_ADD]: add,
+  [Types.TODOS_TOGGLE]: toggle,
 });

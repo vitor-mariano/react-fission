@@ -7,20 +7,6 @@ import CheckButton from '../../../../components/CheckButton/';
 import './styles.scss';
 
 class Todos extends Component {
-  static renderTodos(todos) {
-    return R.addIndex(R.map)((todo, index) => (
-      <li
-        className={todo.completed ? 'checked' : ''}
-        key={index}
-      >
-        <div className="check-button">
-          <CheckButton checked={todo.completed} />
-        </div>
-        <span className="todo-title">{todo.title}</span>
-      </li>
-    ), todos);
-  }
-
   constructor(props) {
     super(props);
 
@@ -48,6 +34,31 @@ class Todos extends Component {
     }
   }
 
+  todoCheckDidPress(index) {
+    this.toggleTodo(index);
+  }
+
+  toggleTodo(index) {
+    this.props.toggleTodo(index);
+  }
+
+  renderTodos(todos) {
+    return R.addIndex(R.map)((todo, index) => (
+      <li
+        className={todo.completed ? 'checked' : ''}
+        key={index}
+      >
+        <div className="check-button">
+          <CheckButton
+            checked={todo.completed}
+            onClick={() => this.todoCheckDidPress(index)}
+          />
+        </div>
+        <span className="todo-title">{todo.title}</span>
+      </li>
+    ), todos);
+  }
+
   render() {
     return (
       <div className="todos">
@@ -60,7 +71,7 @@ class Todos extends Component {
           value={this.state.todoTitle}
         />
         <ol className="list">
-          {Todos.renderTodos(this.props.todos)}
+          {this.renderTodos(this.props.todos)}
         </ol>
         <div className="footer">
           <span>1 item left</span>
@@ -91,6 +102,7 @@ Todos.propTypes = {
     }),
   ).isRequired,
   addTodo: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -102,6 +114,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addTodo: todoTitle => dispatch(TodosActions.todosAdd(todoTitle)),
+    toggleTodo: index => dispatch(TodosActions.todosToggle(index)),
   };
 }
 
