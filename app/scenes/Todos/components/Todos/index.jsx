@@ -92,6 +92,8 @@ class Todos extends Component {
   }
 
   render() {
+    const count = Todos.countUndone(this.props.todos);
+
     return (
       <div className="todos">
         <input
@@ -113,7 +115,7 @@ class Todos extends Component {
           }
         </ol>
         <div className="footer">
-          <span>{Todos.countUndone(this.props.todos)} items left</span>
+          <span>{count} {count === 1 ? 'item' : 'items'} left</span>
           <div className="controller">
             <ul>
               <li className={this.state.list === 'all' ? 'active' : ''}>
