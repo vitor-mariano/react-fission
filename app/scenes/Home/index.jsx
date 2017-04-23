@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
-class HomeScreen extends Component {
+class HomeScene extends Component {
   componentWillMount() {
     document.title = 'React Fission';
   }
@@ -20,7 +20,7 @@ class HomeScreen extends Component {
   }
 }
 
-HomeScreen.propTypes = {
+HomeScene.propTypes = {
 };
 
 function mapStateToProps() {
@@ -34,5 +34,5 @@ function mapDispatchToProps() {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HomeScreen),
+  connect(mapStateToProps, mapDispatchToProps)(HomeScene),
 );

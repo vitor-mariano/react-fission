@@ -9,6 +9,15 @@ h3 {
   font-family: $title;
 }
 
+a {
+  color: royalblue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 button,
 input,
 textarea {

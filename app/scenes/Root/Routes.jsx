@@ -14,8 +14,8 @@ export default function Routes() {
         path="/todos"
       />
       <Route
-        component={require('../GitHub/').default}
-        path="/github"
+        component={require('../Profile/').default}
+        path="/profile"
       />
       {/* eslint-enable */}
     </section>

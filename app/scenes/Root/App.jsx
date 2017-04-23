@@ -25,7 +25,7 @@ export default function App() {
             <Link to="todos">Todos</Link>
           </li>
           <li>
-            <Link to="github">API Example</Link>
+            <Link to="profile">API Example</Link>
           </li>
           <li>
             <a
