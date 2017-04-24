@@ -40,6 +40,20 @@
         font-size: 1rem;
         color: silver;
       }
+
+      .info {
+        display: flex;
+
+        i {
+          margin-right: .5rem;
+        }
+
+        *:last-child {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+        }
+      }
     }
 
     .content {
@@ -64,6 +78,7 @@
           .repository {
             border: solid silver 1px;
             border-radius: 3px;
+            font-size: .9rem;
             padding: 1rem;
 
             ul {

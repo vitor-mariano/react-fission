@@ -19,9 +19,16 @@ class ProfileScene extends Component {
             <h1 className="name">Matheus Mariano</h1>
             <p className="username">matheusmariano</p>
             <hr />
-            <p>Bemind Tecnologia</p>
-            <p>Recife, Brazil</p>
-            <p>
+            <p className="info">
+              <i className="fa fa-fw fa-users" />
+              <span>Bemind Tecnologia</span>
+            </p>
+            <p className="info">
+              <i className="fa fa-fw fa-location-arrow" />
+              <span>Recife, Brazil</span>
+            </p>
+            <p className="info">
+              <i className="fa fa-fw fa-envelope" />
               <a href="mailto:vmatheus.mariano@gmail.com">vmatheus.mariano@gmail.com</a>
             </p>
           </aside>
@@ -41,9 +48,11 @@ class ProfileScene extends Component {
                           <span>PHP</span>
                         </li>
                         <li>
+                          <i className="fa fa-fw fa-star" />
                           <span>10</span>
                         </li>
                         <li>
+                          <i className="fa fa-fw fa-code-fork" />
                           <span>6</span>
                         </li>
                       </ul>
