@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { browserHistory } from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
+import R from 'ramda';
 import 'babel-polyfill';
 
 import rootReducer from './redux';
@@ -16,13 +17,18 @@ const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEV
 
 const sagaMiddleware = createSagaMiddleware();
 
+const middlewares = [
+  applyMiddleware(sagaMiddleware),
+  reduxExtension,
+];
+
 const store = createStore(
   rootReducer,
   defaultState,
-  compose(
-    applyMiddleware(sagaMiddleware),
-    reduxExtension,
-  ),
+  R.pipe(
+    R.filter(R.is(Object)),
+    R.apply(compose),
+  )(middlewares),
 );
 
 sagaMiddleware.run(rootSaga);
