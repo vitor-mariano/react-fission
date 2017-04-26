@@ -78,7 +78,10 @@
           .repository {
             border: solid silver 1px;
             border-radius: 3px;
+            display: flex;
+            flex-direction: column;
             font-size: .9rem;
+            height: 100%;
             padding: 1rem;
 
             ul {
@@ -98,7 +101,11 @@
 
             .repository-name {
               font-weight: 700;
-              margin-top: 0;
+              margin: 0;
+            }
+
+            .repository-description {
+              flex-grow: 1;
             }
           }
         }

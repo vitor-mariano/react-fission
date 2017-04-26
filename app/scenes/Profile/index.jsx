@@ -18,7 +18,7 @@ class ProfileScene extends Component {
           <p className="repository-name">
             <a href={repository.html_url}>{repository.name}</a>
           </p>
-          <p>{repository.description}</p>
+          <p className="repository-description">{repository.description}</p>
           <ul>
             <li>
               <span>{repository.language}</span>
