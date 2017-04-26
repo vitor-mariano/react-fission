@@ -10,6 +10,7 @@ const create = (baseURL = ENV.apiUrl) => {
 
   return {
     profileRequest: username => http.get(`/users/${username}`),
+    userRepositoriesRequest: username => http.get(`/users/${username}/repos`),
   };
 };
 

@@ -4,11 +4,46 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import R from 'ramda';
 import ProfileActions from '../../data/profile/redux';
+import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
 class ProfileScene extends Component {
+  static renderRepositories(repositories) {
+    return R.map(repository => (
+      <div
+        className="repository-wrapper"
+        key={repository.name}
+      >
+        <div className="repository">
+          <p className="repository-name">
+            <a href={repository.html_url}>{repository.name}</a>
+          </p>
+          <p>{repository.description}</p>
+          <ul>
+            <li>
+              <span>{repository.language}</span>
+            </li>
+            <li>
+              <i className="fa fa-fw fa-star" />
+              <span>{repository.stargazers_count}</span>
+            </li>
+            <li>
+              <i className="fa fa-fw fa-code-fork" />
+              <span>{repository.forks}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    ), repositories);
+  }
+
   componentWillMount() {
-    this.props.requestProfile('matheusmariano');
+    this.getProfile('matheusmariano');
+  }
+
+  getProfile(username) {
+    this.props.requestProfile(username);
+    this.props.requestRepositories(username);
   }
 
   render() {
@@ -42,31 +77,7 @@ class ProfileScene extends Component {
           <section className="content">
             <h1>Repositories</h1>
             <div className="repositories">
-              {
-                R.times(R.always((
-                  <div className="repository-wrapper">
-                    <div className="repository">
-                      <p className="repository-name">
-                        <a href="https://github.com/matheusmariano/aula-multi-auth">aula-multi-auth</a>
-                      </p>
-                      <p>Repositório da vídeo-aula sobre multiautenticação com o Laravel 5.2</p>
-                      <ul>
-                        <li>
-                          <span>PHP</span>
-                        </li>
-                        <li>
-                          <i className="fa fa-fw fa-star" />
-                          <span>10</span>
-                        </li>
-                        <li>
-                          <i className="fa fa-fw fa-code-fork" />
-                          <span>6</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                )), 5)
-              }
+              {ProfileScene.renderRepositories(this.props.repositories)}
             </div>
           </section>
         </div>
@@ -77,26 +88,43 @@ class ProfileScene extends Component {
 
 ProfileScene.propTypes = {
   profile: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    login: PropTypes.string.isRequired,
     avatar_url: PropTypes.string.isRequired,
-    company: PropTypes.string,
-    location: PropTypes.string,
-    email: PropTypes.string,
     blog: PropTypes.string,
+    company: PropTypes.string,
+    email: PropTypes.string,
+    location: PropTypes.string,
+    login: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
   }).isRequired,
+  repositories: PropTypes.arrayOf(
+    PropTypes.shape({
+      description: PropTypes.string,
+      forks: PropTypes.number.isRequired,
+      language: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      stargazers_count: PropTypes.number.isRequired,
+      html_url: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   requestProfile: PropTypes.func.isRequired,
+  requestRepositories: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     profile: state.profile.profile,
+    repositories: state.userRepositories.repositories,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    requestProfile: username => dispatch(ProfileActions.profileRequest(username)),
+    requestProfile: username => dispatch(
+      ProfileActions.profileRequest(username),
+    ),
+    requestRepositories: username => dispatch(
+      UserRepositoriesActions.userRepositoriesRequest(username),
+    ),
   };
 }
 

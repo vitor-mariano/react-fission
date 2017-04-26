@@ -5,6 +5,7 @@ const rootReducer = combineReducers({
   /* eslint-disable */
   profile: require('./profile/redux').reducer,
   todos: require('./todos/redux').reducer,
+  userRepositories: require('./user_repositories/redux').reducer,
   routing: routerReducer,
   /* eslint-enable */
 });
