@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         // all files finished with .scss or .sass
-        test: /\.scss$|\.sass$/,
+        test: /\.css$|\.scss$|\.sass$/,
 
         // should be converted by Sass
         loaders: ["style-loader", "css-loader", "sass-loader"]
@@ -46,7 +46,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss', '.sass']
+    extensions: ['', '.js', '.jsx', '.css', '.scss', '.sass']
   },
 
   // Development server parameters:
@@ -57,7 +57,7 @@ module.exports = {
     contentBase: './public',
 
     // Port
-    port: 3333,
+    port: 8000,
 
     // Live Reload <3 Routes
     historyApiFallback: true
