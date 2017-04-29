@@ -29,7 +29,8 @@
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "lint": "./node_modules/.bin/eslint .",
+    "fixcode": "./node_modules/.bin/eslint . --ext js,jsx --fix",
+    "lint": "./node_modules/.bin/eslint . --ext js,jsx",
     "precommit": "npm run lint"
   },
   "dependencies": {
