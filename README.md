@@ -67,6 +67,8 @@ NPM | Yarn
 ----|-----
 `npm run dev` | `yarn run dev`
 
+The application will be available at `localhost:8000`.
+
 ## Building the app
 Run the command
 
