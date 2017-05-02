@@ -1,5 +1,24 @@
-@import '../../appearance/colors';
+@import '../../appearance/main';
 
-h2 {
-  color: $primary;
+#home-scene {
+  .hero {
+    padding: 3rem 1rem;
+    text-align: center;
+
+    h1, h2 {
+      color: $light;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 100;
+    }
+  }
 }

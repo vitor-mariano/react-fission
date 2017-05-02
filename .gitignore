@@ -1,4 +1,8 @@
 .env.json
 node_modules/
+npm-debug.log
+yarn-error.log
 public/app.js
 public/app.js.map
+.DS_Store
+.idea

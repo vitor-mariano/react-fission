@@ -9,7 +9,8 @@ const create = (baseURL = ENV.apiUrl) => {
   });
 
   return {
-    githubGetRepos: username => http.get(`/users/${username}/repos`),
+    profileRequest: username => http.get(`/users/${username}`),
+    userRepositoriesRequest: username => http.get(`/users/${username}/repos`),
   };
 };
 

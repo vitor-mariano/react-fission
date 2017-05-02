@@ -1,0 +1,121 @@
+@import '../../appearance/main';
+
+#profile-scene {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    padding: 1rem;
+    width: 940px;
+
+    .profile {
+      margin-right: 2rem;
+      width: 230px;
+
+      p {
+        font-size: .9rem;
+        margin: .5rem 0;
+      }
+
+      hr {
+        background-color: lightgray;
+        border-width: 0;
+        height: 1px;
+        margin: 1.5rem 0;
+      }
+
+      .avatar {
+        border-radius: 8px;
+        width: 230px;
+      }
+
+      .name {
+        font-size: 1.5rem;
+        margin-bottom: .4rem;
+      }
+
+      .username {
+        font-size: 1rem;
+        color: silver;
+      }
+
+      .info {
+        display: flex;
+
+        i {
+          margin-right: .5rem;
+        }
+
+        *:last-child {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+        }
+      }
+    }
+
+    .content {
+      flex-grow: 1;
+
+      .repositories {
+        display: flex;
+        flex-wrap: wrap;
+
+        .loader {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .repository-wrapper {
+          padding: .5rem;
+          width: 50%;
+
+          &:nth-child(2n+1) {
+            padding-left: 0;
+          }
+
+          &:nth-child(2n) {
+            padding-right: 0;
+          }
+
+          .repository {
+            border: solid silver 1px;
+            border-radius: 3px;
+            display: flex;
+            flex-direction: column;
+            font-size: .9rem;
+            height: 100%;
+            padding: 1rem;
+
+            ul {
+              display: flex;
+              margin: 0;
+              padding: 0;
+              list-style: none;
+
+              li {
+                margin-right: 1rem;
+
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
+
+            .repository-name {
+              font-weight: 700;
+              margin: 0;
+            }
+
+            .repository-description {
+              flex-grow: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../appearance/main';
+
+#todos-scene {
+  .page-header {
+    text-align: center;
+
+    h1 {
+      color: $light;
+      font-size: 3rem;
+    }
+  }
+}

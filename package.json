@@ -1,9 +1,9 @@
 {
-  "name": "react-bootstrap",
-  "version": "0.1.0",
+  "name": "react-fission",
+  "version": "0.3.0",
   "description": "A fresh React project.",
   "main": "index.js",
-  "repository": "https://https://github.com/matheusmariano/react-bootstrap",
+  "repository": "https://https://github.com/matheusmariano/react-fission",
   "author": "Matheus Mariano <vmatheus.mariano@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -29,7 +29,8 @@
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "lint": "./node_modules/.bin/eslint .",
+    "fixcode": "./node_modules/.bin/eslint . --ext js,jsx --fix",
+    "lint": "./node_modules/.bin/eslint . --ext js,jsx",
     "precommit": "npm run lint"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "redux": "^3.6.0",
     "redux-saga": "^0.14.6",
     "reduxsauce": "^0.4.1",
-    "seamless-immutable": "^7.0.1"
+    "seamless-immutable": "^7.0.1",
+    "uuid": "^3.0.1"
   }
 }

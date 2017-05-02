@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
-class HomeScene extends Component {
+class NotFoundScene extends Component {
   componentWillMount() {
     document.title = 'React Fission';
   }
 
   render() {
     return (
-      <div id="home-scene">
+      <div id="not-found-scene">
         <section className="hero">
-          <h1>Hello, React!</h1>
-          <h2>You are ready to start your amazing project.</h2>
+          <img
+            alt="Not Found"
+            src="images/not-found.png"
+          />
+          <h1>Page Not Found</h1>
         </section>
       </div>
     );
   }
 }
 
-HomeScene.propTypes = {
+NotFoundScene.propTypes = {
 };
 
 function mapStateToProps() {
@@ -34,5 +37,5 @@ function mapDispatchToProps() {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HomeScene),
+  connect(mapStateToProps, mapDispatchToProps)(NotFoundScene),
 );
