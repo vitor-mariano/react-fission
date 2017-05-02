@@ -11,25 +11,30 @@ export const ProfileTypes = Types;
 export default Creators;
 
 export const INITIAL_STATE = Immutable({
-  profile: {},
+  isProfileStored: false,
+  profile: null,
   requesting: false,
+  requestSuccess: null,
 });
 
 export const request = state =>
   state.merge({
-    profile: {},
     requesting: true,
+    requestSuccess: null,
   });
 
 export const requestSuccess = (state, { profile }) =>
   state.merge({
+    isProfileStored: true,
     profile,
     requesting: false,
+    requestSuccess: true,
   });
 
 export const requestFailure = state =>
   state.merge({
     requesting: false,
+    requestSuccess: false,
   });
 
 export const reducer = createReducer(INITIAL_STATE, {

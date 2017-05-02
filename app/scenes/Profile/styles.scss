@@ -63,6 +63,12 @@
         display: flex;
         flex-wrap: wrap;
 
+        .loader {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+
         .repository-wrapper {
           padding: .5rem;
           width: 50%;

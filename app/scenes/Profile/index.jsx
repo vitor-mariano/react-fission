@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import R from 'ramda';
-import ProfileActions from '../../data/profile/redux';
 import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
@@ -38,12 +36,19 @@ class ProfileScene extends Component {
   }
 
   componentWillMount() {
-    this.getProfile('matheusmariano');
+    if (!this.props.isRepositoriesStored) {
+      this.props.requestRepositories('matheusmariano');
+    }
   }
 
-  getProfile(username) {
-    this.props.requestProfile(username);
-    this.props.requestRepositories(username);
+  waitRepositories() {
+    return !this.props.loadingRepositories
+      ? ProfileScene.renderRepositories(this.props.repositories)
+      : (
+        <div className="loader">
+          <i className="fa fa-pulse fa-spinner" />
+        </div>
+      );
   }
 
   render() {
@@ -77,7 +82,7 @@ class ProfileScene extends Component {
           <section className="content">
             <h1>Repositories</h1>
             <div className="repositories">
-              {ProfileScene.renderRepositories(this.props.repositories)}
+              {this.waitRepositories()}
             </div>
           </section>
         </div>
@@ -87,6 +92,8 @@ class ProfileScene extends Component {
 }
 
 ProfileScene.propTypes = {
+  isRepositoriesStored: PropTypes.bool.isRequired,
+  loadingRepositories: PropTypes.bool.isRequired,
   profile: PropTypes.shape({
     avatar_url: PropTypes.string.isRequired,
     blog: PropTypes.string,
@@ -106,12 +113,13 @@ ProfileScene.propTypes = {
       html_url: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  requestProfile: PropTypes.func.isRequired,
   requestRepositories: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
+    isRepositoriesStored: state.userRepositories.isRepositoriesStored,
+    loadingRepositories: state.userRepositories.requesting,
     profile: state.profile.profile,
     repositories: state.userRepositories.repositories,
   };
@@ -119,15 +127,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    requestProfile: username => dispatch(
-      ProfileActions.profileRequest(username),
-    ),
     requestRepositories: username => dispatch(
       UserRepositoriesActions.userRepositoriesRequest(username),
     ),
   };
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ProfileScene),
-);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScene);

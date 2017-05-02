@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 export default function Routes() {
   return (
-    <section>
+    <Switch>
       {/* eslint-disable */}
       <Route
         component={require('../Home/').default}
@@ -14,10 +14,14 @@ export default function Routes() {
         path="/todos"
       />
       <Route
-        component={require('../Profile/').default}
+        component={require('../Profile/resolver').default}
         path="/profile"
       />
+      <Route
+        component={require('../NotFound/').default}
+        path="*"
+      />
       {/* eslint-enable */}
-    </section>
+    </Switch>
   );
 }

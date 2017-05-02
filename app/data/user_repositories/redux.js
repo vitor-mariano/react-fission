@@ -11,18 +11,19 @@ export const UserRepositoriesTypes = Types;
 export default Creators;
 
 export const INITIAL_STATE = Immutable({
+  isRepositoriesStored: false,
   repositories: [],
   requesting: false,
 });
 
 export const request = state =>
   state.merge({
-    repositories: [],
     requesting: true,
   });
 
 export const requestSuccess = (state, { repositories }) =>
   state.merge({
+    isRepositoriesStored: true,
     repositories,
     requesting: false,
   });
