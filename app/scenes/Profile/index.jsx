@@ -36,6 +36,8 @@ class ProfileScene extends Component {
   }
 
   componentWillMount() {
+    document.title = 'Profile - React Fission';
+
     if (!this.props.isRepositoriesStored) {
       this.props.requestRepositories('matheusmariano');
     }

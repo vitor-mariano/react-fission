@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var path = require('path')
 var R = require('ramda')
 
 var ProvidePlugin = webpack.ProvidePlugin
@@ -13,13 +14,13 @@ module.exports = {
 
   // Output file, where your app should be compiled and imported by index.html.
   output: {
-    path: './public/',
+    path: path.join(__dirname, "public"),
     filename: 'app.js'
   },
 
   // Compiling parameters:
   module: {
-    loaders: [
+    rules: [
       {
         // all the files finished with .js or .jsx
         test: /\.jsx?$/,
@@ -40,13 +41,13 @@ module.exports = {
         test: /\.css$|\.scss$|\.sass$/,
 
         // should be converted by Sass
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+        use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.scss', '.sass']
+    extensions: ['.js', '.jsx', '.css', '.scss', '.sass']
   },
 
   // Development server parameters:
