@@ -5,7 +5,7 @@ import './styles.scss';
 
 class NotFoundScene extends Component {
   componentWillMount() {
-    document.title = 'React Fission';
+    document.title = 'Page not found - React Fission';
   }
 
   render() {
