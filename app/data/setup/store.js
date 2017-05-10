@@ -3,33 +3,41 @@ import createSagaMiddleware from 'redux-saga';
 import { browserHistory } from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
-import R from 'ramda';
+import { autoRehydrate, persistStore } from 'redux-persist';
 import 'babel-polyfill';
 
-import rootReducer from './redux';
-import rootSaga from './sagas';
+import rootReducer from '../redux';
+import rootSaga from '../sagas';
+import immutablePersistenceTransform from './transform';
+import persist from '../persist';
 
 const defaultState = {};
-
-/* eslint-disable */
-const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-/* eslint-enable */
 
 const sagaMiddleware = createSagaMiddleware();
 
 const middlewares = [
   applyMiddleware(sagaMiddleware),
-  reduxExtension,
+  autoRehydrate(),
 ];
+
+/* eslint-disable */
+const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
+/* eslint-enable */
+
+if (reduxExtension) {
+  middlewares.push(reduxExtension());
+}
 
 const store = createStore(
   rootReducer,
   defaultState,
-  R.pipe(
-    R.filter(R.is(Object)),
-    R.apply(compose),
-  )(middlewares),
+  compose(...middlewares),
 );
+
+persistStore(store, {
+  transforms: [immutablePersistenceTransform],
+  ...persist,
+});
 
 sagaMiddleware.run(rootSaga);
 
