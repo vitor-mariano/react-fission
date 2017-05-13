@@ -1,0 +1,31 @@
+{
+  "home": {
+    "page_title": "React Fission",
+    "menu_title": "Home",
+    "title": "Hello, React!",
+    "description": "You are ready to start your amazing project."
+  },
+  "todos": {
+    "page_title": "Todos - React Fission",
+    "menu_title": "Todos",
+    "title": "Todos",
+    "components": {
+      "todos": {
+        "placeholder": "What needs to be done?",
+        "undone": "{itemCount, plural, one {# item} other {# items}} left",
+        "all": "All",
+        "active": "Active",
+        "completed": "Completed",
+        "clear_completed": "Clear completed"
+      }
+    }
+  },
+  "profile": {
+    "page_title": "Profile - React Fission",
+    "menu_title": "API Example",
+    "title": "Repositories"
+  },
+  "not_found": {
+    "title": "Page Not Found"
+  }
+}

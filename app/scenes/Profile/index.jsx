@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import R from 'ramda';
 import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
 class ProfileScene extends Component {
+  static get contextTypes() {
+    return {
+      intl: PropTypes.object.isRequired,
+    };
+  }
+
   static renderRepositories(repositories) {
     return R.map(repository => (
       <div
@@ -36,11 +43,15 @@ class ProfileScene extends Component {
   }
 
   componentWillMount() {
-    document.title = 'Profile - React Fission';
+    document.title = this.formatMessage({ id: 'profile.page_title' });
 
     if (!this.props.isRepositoriesStored) {
       this.props.requestRepositories('matheusmariano');
     }
+  }
+
+  formatMessage(props) {
+    return this.context.intl.formatMessage(props);
   }
 
   waitRepositories() {
@@ -82,7 +93,9 @@ class ProfileScene extends Component {
             </p>
           </aside>
           <section className="content">
-            <h1>Repositories</h1>
+            <h1>
+              <FormattedMessage id="profile.title" />
+            </h1>
             <div className="repositories">
               {this.waitRepositories()}
             </div>

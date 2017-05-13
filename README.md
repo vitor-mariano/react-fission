@@ -8,6 +8,7 @@ React Fission follows the best practices and use powerful libraries for ReactJS,
 - [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Husky - Git hooks to prevent bad commits](https://github.com/typicode/husky)
 - [Redux - Predictable state container for JavaScript apps](https://github.com/reactjs/redux)
+- [Reduxsauce - Provides a few tools for working with Redux](https://github.com/skellock/reduxsauce)
 - [React Router - Declarative routing for React](https://github.com/ReactTraining/react-router)
 - [Apisauce - Talk with API without pain](https://github.com/skellock/apisauce)
 - [Redux Saga - An alternative side effect model for Redux](https://github.com/redux-saga/redux-saga/)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import R from 'ramda';
 import TodosActions from '../../../../data/todos/redux';
@@ -21,6 +22,10 @@ class Todos extends Component {
       [R.equals('completed'), () => R.filter(R.prop('done'), list)],
       [R.T, R.always(list)],
     ])(filter);
+  }
+
+  static intl(id) {
+    return `todos.components.todos.${id}`;
   }
 
   constructor(props) {
@@ -101,14 +106,18 @@ class Todos extends Component {
 
     return (
       <div className="todos">
-        <input
-          className="todo-title-input"
-          onChange={event => this.titleInputDidChange(event)}
-          onKeyPress={event => this.titleInputKeyDidPress(event)}
-          placeholder="What needs to be done?"
-          type="text"
-          value={this.state.todoTitle}
-        />
+        <FormattedMessage id={Todos.intl('placeholder')}>
+          {message => (
+            <input
+              className="todo-title-input"
+              onChange={event => this.titleInputDidChange(event)}
+              onKeyPress={event => this.titleInputKeyDidPress(event)}
+              placeholder={message}
+              type="text"
+              value={this.state.todoTitle}
+            />
+          )}
+        </FormattedMessage>
         <ol className="list">
           {
             this.renderTodos(
@@ -120,7 +129,7 @@ class Todos extends Component {
           }
         </ol>
         <div className="footer">
-          <span>{undone} {undone === 1 ? 'item' : 'items'} left</span>
+          <FormattedMessage id={Todos.intl('undone')} values={{ itemCount: undone }} />
           <div className="controller">
             <ul>
               <li className={this.state.list === 'all' ? 'active' : ''}>
@@ -128,7 +137,7 @@ class Todos extends Component {
                   onClick={() => this.setList('all')}
                   type="button"
                 >
-                  <span>All</span>
+                  <FormattedMessage id={Todos.intl('all')} />
                 </button>
               </li>
               <li className={this.state.list === 'active' ? 'active' : ''}>
@@ -136,7 +145,7 @@ class Todos extends Component {
                   onClick={() => this.setList('active')}
                   type="button"
                 >
-                  <span>Active</span>
+                  <FormattedMessage id={Todos.intl('active')} />
                 </button>
               </li>
               <li className={this.state.list === 'completed' ? 'active' : ''}>
@@ -144,7 +153,7 @@ class Todos extends Component {
                   onClick={() => this.setList('completed')}
                   type="button"
                 >
-                  <span>Completed</span>
+                  <FormattedMessage id={Todos.intl('completed')} />
                 </button>
               </li>
             </ul>
@@ -156,7 +165,7 @@ class Todos extends Component {
                 onClick={() => this.clearButtonDidClick()}
                 type="button"
               >
-                <span>Clear completed</span>
+                <FormattedMessage id={Todos.intl('clear_completed')} />
               </button>
             ) : ''
           }

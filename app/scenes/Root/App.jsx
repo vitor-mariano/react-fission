@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import Routes from './Routes';
 import './styles.scss';
 
@@ -19,13 +20,19 @@ export default function App() {
         </Link>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <FormattedMessage id="home.menu_title" />
+            </Link>
           </li>
           <li>
-            <Link to="todos">Todos</Link>
+            <Link to="todos">
+              <FormattedMessage id="todos.menu_title" />
+            </Link>
           </li>
           <li>
-            <Link to="profile">API Example</Link>
+            <Link to="profile">
+              <FormattedMessage id="profile.menu_title" />
+            </Link>
           </li>
           <li>
             <a
