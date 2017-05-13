@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import './styles.scss';
 
 class NotFoundScene extends Component {
@@ -16,7 +17,9 @@ class NotFoundScene extends Component {
             alt="Not Found"
             src="images/not-found.png"
           />
-          <h1>Page Not Found</h1>
+          <h1>
+            <FormattedMessage id="not_found.title" />
+          </h1>
         </section>
       </div>
     );

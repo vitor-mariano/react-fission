@@ -1,0 +1,31 @@
+{
+  "home": {
+    "page_title": "React Fission",
+    "menu_title": "Início",
+    "title": "Olá, React!",
+    "description": "Você está pronto para criar seu projeto incrível."
+  },
+  "todos": {
+    "page_title": "Tarefas - React Fission",
+    "menu_title": "Tarefas",
+    "title": "Tarefas",
+    "components": {
+      "todos": {
+        "placeholder": "O que precisa ser feito?",
+        "undone": "{itemCount, plural, =0 {# itens restantes} one {# item restante} other {# itens restantes}}",
+        "all": "Todos",
+        "active": "Ativos",
+        "completed": "Feitos",
+        "clear_completed": "Limpar feitos"
+      }
+    }
+  },
+  "profile": {
+    "page_title": "Perfil - React Fission",
+    "menu_title": "Exemplo de API",
+    "title": "Repositórios"
+  },
+  "not_found": {
+    "title": "Página Não Encontrada"
+  }
+}
