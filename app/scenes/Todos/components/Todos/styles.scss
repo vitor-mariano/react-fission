@@ -11,7 +11,7 @@
     width: 100%;
 
     &::placeholder {
-      color: silver;
+      color: $silver;
     }
   }
 
@@ -48,7 +48,7 @@
 
   .footer {
     border-top: solid lightgray 1px;
-    color: silver;
+    color: $silver;
     display: flex;
     font-size: .875rem;
     justify-content: space-between;
@@ -75,7 +75,7 @@
           margin: 0 .5rem;
 
           &.active button {
-            border-color: silver;
+            border-color: $silver;
           }
 
           button {
@@ -86,7 +86,7 @@
             padding: .25rem .5rem;
 
             &:hover {
-              border-color: rgba(silver, .5);
+              border-color: rgba($silver, .5);
             }
           }
         }
@@ -94,7 +94,7 @@
     }
 
     .clear-done {
-      color: silver;
+      color: $silver;
       font-size: .875rem;
 
       &:hover {
