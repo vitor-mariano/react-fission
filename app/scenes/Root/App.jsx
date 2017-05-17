@@ -6,7 +6,7 @@ import './styles.scss';
 
 export default function App() {
   return (
-    <div>
+    <div className="container">
       <nav className="main-menu">
         <Link
           className="logo"

@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(to right, $background-red, $background-purple);
+  color: $dark;
+  font-family: $standard;
+  margin: 0;
+}
+
 h1,
 h2,
 h3 {
-  color: $light;
   font-family: $title;
 }
 
@@ -18,30 +24,30 @@ a {
   }
 }
 
-button,
-input,
-textarea {
-  outline: none;
-}
+// button,
+// input,
+// textarea {
+//   outline: none;
+// }
 
 button {
   cursor: pointer;
 }
 
-.text-center {
-  text-align: center;
-}
+// .text-center {
+//   text-align: center;
+// }
 
-.reset-button {
-  background-color: transparent;
-  border-width: 0;
-  padding: 0;
-}
+// .reset-button {
+//   background-color: transparent;
+//   border-width: 0;
+//   padding: 0;
+// }
 
-.flex {
-  display: flex;
+// .flex {
+//   display: flex;
 
-  &.flex-center {
-    justify-content: center;
-  }
-}
+//   &.flex-center {
+//     justify-content: center;
+//   }
+// }

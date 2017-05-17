@@ -1,60 +1,51 @@
-@import '../../appearance/main.scss';
+@import "../../appearance/main";
 
-body {
-  background: #f3904f; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #CB2D3E, #982B88); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #CB2D3E, #982B88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: $dark;
-  font-family: $standard;
-  margin: 0;
-}
-
-.main-menu {
+.Header {
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.Logo {
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+}
 
-    li {
-      display: inline;
-      margin: 0 1rem;
+.Logo__text {
+  color: $light;
+  font-size: 1.3rem;
+  margin: 0;
+}
 
-      &:last-child {
-        margin-right: 0;
-      }
+.Logo__icon {
+  height: 1.3rem;
+  margin-right: .5rem;
+}
 
-      a {
-        color: $light;
-        font-weight: bold;
-        opacity: 0.75;
-        text-decoration: none;
+.MainMenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
+.MainMenu__item {
+  display: inline;
+  margin: 0 1rem;
+
+  &:last-child {
+    margin-right: 0;
   }
+}
 
-  .logo {
-    align-items: center;
-    display: flex;
-    text-decoration: none;
+.MainMenu__link {
+  color: $light;
+  font-weight: bold;
+  opacity: .75;
+  text-decoration: none;
 
-    h1 {
-      color: $light;
-      font-size: 1.3rem;
-      margin: 0;
-    }
-
-    img {
-      height: 1.3rem;
-      margin-right: 0.5rem;
-    }
+  &:hover {
+    opacity: 1;
   }
 }
