@@ -1,51 +1,48 @@
 @import "../../appearance/main";
+@import "../../appearance/abstract";
 
-.Header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+* {
+  box-sizing: border-box;
 }
 
-.Logo {
-  align-items: center;
-  display: flex;
-  text-decoration: none;
-}
-
-.Logo__text {
-  color: $light;
-  font-size: 1.3rem;
+body {
+  background: linear-gradient(
+    to right,
+    $background-color-gradient-a,
+    $background-color-gradient-b
+  );
+  color: $text-color-default;
+  font-family: $default-font;
   margin: 0;
 }
 
-.Logo__icon {
-  height: 1.3rem;
-  margin-right: .5rem;
+h1,
+h2,
+h3 {
+  font-family: $title-font;
 }
 
-.MainMenu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.MainMenu__item {
-  display: inline;
-  margin: 0 1rem;
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
-.MainMenu__link {
-  color: $light;
-  font-weight: bold;
-  opacity: .75;
+a {
+  color: $primary-color;
   text-decoration: none;
 
   &:hover {
-    opacity: 1;
+    text-decoration: underline;
   }
+}
+
+button,
+input,
+textarea {
+  font-family: $default-font;
+  outline: none;
+}
+
+input,
+textarea {
+  font-size: 1.25rem;
+}
+
+button {
+  cursor: pointer;
 }

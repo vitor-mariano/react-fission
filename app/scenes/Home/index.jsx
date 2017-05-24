@@ -22,12 +22,12 @@ class HomeScene extends Component {
 
   render() {
     return (
-      <div id="home-scene">
-        <section className="hero">
-          <h1>
+      <div>
+        <section className="home-hero">
+          <h1 className="display-1 home-hero__title">
             <FormattedMessage id="home.title" />
           </h1>
-          <h2>
+          <h2 className="display-4 home-hero__subtitle">
             <FormattedMessage id="home.description" />
           </h2>
         </section>

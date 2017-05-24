@@ -1,15 +1,1 @@
-@import '../../appearance/main';
-
-#not-found-scene {
-  .hero {
-    padding: 3rem 1rem;
-    text-align: center;
-
-    h1 {
-      color: $light;
-      font-size: 5rem;
-      font-weight: 700;
-      margin: 1rem 0;
-    }
-  }
-}
+@import "../../appearance/abstract";

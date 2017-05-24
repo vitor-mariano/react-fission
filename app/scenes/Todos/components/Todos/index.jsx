@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import R from 'ramda';
 import TodosActions from '../../../../data/todos/redux';
 import CheckButton from '../../../../components/CheckButton/';
+import RS from '../../../../lib/reactsauce';
 import './styles.scss';
 
 class Todos extends Component {
@@ -79,20 +80,25 @@ class Todos extends Component {
   renderTodos(todos) {
     return R.map(todo => (
       <li
-        className={todo.done ? 'checked' : ''}
+        className={
+          RS.classes({
+            'todo-item': true,
+            'todo-item--checked': todo.done,
+          })
+        }
         key={todo.uuid}
       >
-        <div className="flex">
-          <div className="check-button">
+        <div className="todo-item__wrapper">
+          <div className="todo-item__check-button">
             <CheckButton
               checked={todo.done}
               onClick={() => this.todoCheckDidPress(todo.uuid)}
             />
           </div>
-          <span className="todo-title">{todo.title}</span>
+          <span className="todo-item__title">{todo.title}</span>
         </div>
         <button
-          className="reset-button close-button"
+          className="todo-item__close-button"
           onClick={() => this.removeTodoButtonDidClick(todo.uuid)}
           type="button"
         />
@@ -105,11 +111,11 @@ class Todos extends Component {
     const undone = Todos.countTodosBy(false, this.props.todos);
 
     return (
-      <div className="todos">
+      <div className="todos-component">
         <FormattedMessage id={Todos.intl('placeholder')}>
           {message => (
             <input
-              className="todo-title-input"
+              className="todos-component__new-task-input"
               onChange={event => this.titleInputDidChange(event)}
               onKeyPress={event => this.titleInputKeyDidPress(event)}
               placeholder={message}
@@ -118,7 +124,7 @@ class Todos extends Component {
             />
           )}
         </FormattedMessage>
-        <ol className="list">
+        <ol className="todo-list">
           {
             this.renderTodos(
               Todos.filterList(
@@ -128,28 +134,52 @@ class Todos extends Component {
             )
           }
         </ol>
-        <div className="footer">
+        <div className="todos-component__footer">
           <FormattedMessage id={Todos.intl('undone')} values={{ itemCount: undone }} />
-          <div className="controller">
-            <ul>
-              <li className={this.state.list === 'all' ? 'active' : ''}>
+          <div className="todos-controller">
+            <ul className="todos-controller__list">
+              <li
+                className={
+                  RS.classes({
+                    'todos-controller__item': true,
+                    'todos-controller__item--active': this.state.list === 'all',
+                  })
+                }
+              >
                 <button
+                  className="todos-button"
                   onClick={() => this.setList('all')}
                   type="button"
                 >
                   <FormattedMessage id={Todos.intl('all')} />
                 </button>
               </li>
-              <li className={this.state.list === 'active' ? 'active' : ''}>
+              <li
+                className={
+                  RS.classes({
+                    'todos-controller__item': true,
+                    'todos-controller__item--active': this.state.list === 'active',
+                  })
+                }
+              >
                 <button
+                  className="todos-button"
                   onClick={() => this.setList('active')}
                   type="button"
                 >
                   <FormattedMessage id={Todos.intl('active')} />
                 </button>
               </li>
-              <li className={this.state.list === 'completed' ? 'active' : ''}>
+              <li
+                className={
+                  RS.classes({
+                    'todos-controller__item': true,
+                    'todos-controller__item--active': this.state.list === 'completed',
+                  })
+                }
+              >
                 <button
+                  className="todos-button"
                   onClick={() => this.setList('completed')}
                   type="button"
                 >
@@ -159,15 +189,15 @@ class Todos extends Component {
             </ul>
           </div>
           {
-            done > 0 ? (
+            done > 0 && (
               <button
-                className="reset-button clear-done"
+                className="todos-component__clear-button"
                 onClick={() => this.clearButtonDidClick()}
                 type="button"
               >
                 <FormattedMessage id={Todos.intl('clear_completed')} />
               </button>
-            ) : ''
+            )
           }
         </div>
       </div>

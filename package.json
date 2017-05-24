@@ -32,8 +32,7 @@
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
     "fixcode": "./node_modules/.bin/eslint . --ext js,jsx --fix",
-    "lint": "./node_modules/.bin/eslint . --ext js,jsx",
-    "nextlint": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx\" \"./node_modules/.bin/sass-lint -c .sass-lint.yml -v\"",
+    "lint": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx\" \"./node_modules/.bin/sass-lint -c .sass-lint.yml -v\"",
     "precommit": "npm run lint"
   },
   "dependencies": {
