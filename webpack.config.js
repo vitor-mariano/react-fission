@@ -37,8 +37,8 @@ module.exports = {
         }
       },
       {
-        // all files finished with .scss or .sass
-        test: /\.css$|\.scss$|\.sass$/,
+        // all files finished with .scss
+        test: /\.css$|\.scss$/,
 
         // should be converted by Sass
         use: ["style-loader", "css-loader", "sass-loader"]
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.scss', '.sass']
+    extensions: ['.js', '.jsx', '.css', '.scss']
   },
 
   // Development server parameters:

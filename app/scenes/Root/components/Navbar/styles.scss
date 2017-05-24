@@ -1,0 +1,130 @@
+@import "../../../../appearance/abstract";
+
+$responsive-menu-height: 3.15rem * 4;
+
+.navbar {
+  align-items: center;
+  justify-content: space-between;
+
+  &__fixed {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__toggle-button {
+    background-color: transparent;
+    border: 0;
+    color: $text-color-inverse;
+    font-size: 1.3rem;
+    padding: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar {
+    &__menu {
+      max-height: 0;
+      overflow: hidden;
+
+      &--open {
+        animation: openMenu .5s ease-in-out forwards;
+      }
+
+      &--close {
+        animation: closeMenu .5s ease-in-out forwards;
+      }
+
+      @keyframes openMenu {
+        0% {
+          max-height: 0;
+        }
+
+        100% {
+          max-height: $responsive-menu-height;
+        }
+      }
+
+      @keyframes closeMenu {
+        0% {
+          max-height: $responsive-menu-height;
+        }
+
+        100% {
+          max-height: 0;
+        }
+      }
+    }
+
+    &__fixed {
+      padding: 1rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar {
+    display: flex;
+    padding: 1rem;
+  }
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &__text {
+    color: $text-color-inverse;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  &__icon {
+    height: 1.3rem;
+    margin-right: .5rem;
+  }
+}
+
+.main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__link {
+    color: $text-color-inverse;
+    font-weight: bold;
+    opacity: .75;
+
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .main-menu {
+    background-color: $background-color-inverse-translucid;
+
+    &__link {
+      display: block;
+      padding: 1rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .main-menu {
+    &__item {
+      display: inline;
+      margin: 0 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
-@import '../../appearance/main';
+@import "../../appearance/abstract";
 
-#todos-scene {
-  .page-header {
-    text-align: center;
+.todos-page {
+  &__title {
+    color: $text-color-inverse;
+  }
 
-    h1 {
-      color: $light;
-      font-size: 3rem;
-    }
+  &__component {
+    display: flex;
+    justify-content: center;
   }
 }

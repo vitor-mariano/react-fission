@@ -1,0 +1,15 @@
+@import "../../abstract";
+
+@each $media in (xs, sm, md, lg, xl) {
+  @include media-breakpoint-down($media) {
+    .hidden-#{$media}-down {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-up($media) {
+    .hidden-#{$media}-up {
+      display: none;
+    }
+  }
+}
