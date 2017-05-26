@@ -22,13 +22,13 @@ class TodosScene extends Component {
 
   render() {
     return (
-      <div id="todos-scene">
-        <header className="page-header">
-          <h1>
+      <div>
+        <header className="todos-page text-center">
+          <h1 className="todos-page__title display-3">
             <FormattedMessage id="todos.title" />
           </h1>
         </header>
-        <section className="flex flex-center">
+        <section className="todos-page__component">
           <Todos />
         </section>
       </div>

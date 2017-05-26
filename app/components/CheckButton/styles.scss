@@ -1,21 +1,21 @@
-@import '../../appearance/main';
+@import "../../appearance/abstract";
 
 $button-size: 1.25rem;
 $mark-size: .75rem;
 
-#check-button {
+.check-button {
   align-items: center;
   background-color: transparent;
-  border: solid silver 1px;
+  border: solid $silver 1px;
   border-radius: $button-size / 2;
   display: flex;
-  justify-content: center;
   height: $button-size;
+  justify-content: center;
   padding: 0;
   width: $button-size;
 
-  .mark {
-    background-color: royalblue;
+  &__mark {
+    background-color: $primary-color;
     border-radius: $mark-size / 2;
     height: $mark-size;
     width: $mark-size;

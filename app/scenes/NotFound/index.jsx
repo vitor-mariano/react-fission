@@ -11,15 +11,15 @@ class NotFoundScene extends Component {
 
   render() {
     return (
-      <div id="not-found-scene">
-        <section className="hero">
+      <div>
+        <section className="jumbotron">
           <img
             alt="Not Found"
             src="images/not-found.png"
           />
-          <h1>
+          <h2 className="jumbotron__subtitle">
             <FormattedMessage id="not_found.title" />
-          </h1>
+          </h2>
         </section>
       </div>
     );

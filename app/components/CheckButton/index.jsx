@@ -18,7 +18,7 @@ class CheckButton extends Component {
   }
 
   static renderMark(checked) {
-    return checked && <div className="mark" />;
+    return checked && <div className="check-button__mark" />;
   }
 
   constructor(props) {
@@ -43,7 +43,7 @@ class CheckButton extends Component {
   render() {
     return (
       <button
-        id="check-button"
+        className="check-button"
         onClick={event => this.buttonDidClick(event)}
         type="button"
       >
