@@ -6,6 +6,7 @@ React Fission is a powerful starting project for ReactJS, based on [Ignite](http
 ### Powerful Features
 React Fission follows the best practices and use powerful libraries for ReactJS, as listed below.
 - [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Airbnb's CSS Style Guide](https://github.com/airbnb/css)
 - [Husky - Git hooks to prevent bad commits](https://github.com/typicode/husky)
 - [Redux - Predictable state container for JavaScript apps](https://github.com/reactjs/redux)
 - [Redux Persist - Persist and rehydrate a redux store](https://github.com/rt2zz/redux-persist)
