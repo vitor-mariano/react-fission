@@ -4,6 +4,7 @@
 React Fission is a powerful starting project for ReactJS, based on [Ignite](https://github.com/infinitered/ignite).
 
 ### Powerful Features
+
 React Fission follows the best practices and use powerful libraries for ReactJS, as listed below.
 - [Airbnb's JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Airbnb's CSS Style Guide](https://github.com/airbnb/css)
@@ -20,33 +21,34 @@ React Fission follows the best practices and use powerful libraries for ReactJS,
 - ~~[Jest - Painless JavaScript Testing](https://github.com/facebook/jest/)~~ *not implemented yet!
 
 ## Instalation
+
 You should install the command `create-project` first
 
- NPM | Yarn 
+ NPM | Yarn
 -----|------
 `npm install -g create-project` | `yarn global add create-project`
 
 and start a new React Fission project.
 
-```
+``` sh
 create-project your-project-name matheusmariano/react-fission
 ```
 
 If you are looking for the development version, you should run
 
-```
+``` sh
 create-project your-project-name matheusmariano/react-fission#develop
 ```
 
 Open your new project folder
 
-```
+``` sh
 cd your-project-name
 ```
 
 and initiate your git repository.
 
-```
+``` sh
 git init
 ```
 
@@ -61,8 +63,8 @@ NPM | Yarn
 
 Paste your environment file from example.
 
-```
-cp example.env.json .env.json
+``` sh
+cp example.env .env
 ```
 
 Finally start the development server.
@@ -74,6 +76,7 @@ NPM | Yarn
 The application will be available at `localhost:8000`.
 
 ## Building the app
+
 Run the command
 
 NPM | Yarn
@@ -97,10 +100,12 @@ Command | Description
 `lint` | List all linter issues.
 
 ## Known issues
+
 #### Issue
 `Uncaught Error: Cannot find module [sass file path]`
 #### Solution
 Run `npm rebuild node-sass` and restart the development server.
 
 ## License
+
 React Fission is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
