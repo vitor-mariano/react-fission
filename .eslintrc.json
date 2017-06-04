@@ -21,7 +21,6 @@
     "react"
   ],
   "globals": {
-    "ENV": true,
     "require": true
   }
 }

@@ -1,12 +1,11 @@
 var webpack = require('webpack')
 var path = require('path')
+var Dotenv = require('dotenv-webpack')
 var R = require('ramda')
 
 var ProvidePlugin = webpack.ProvidePlugin
 var DefinePlugin = webpack.DefinePlugin
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
-
-var ENV = process.env.NODE_ENV
 
 module.exports = {
   // Main file, where your project starts.
@@ -37,8 +36,8 @@ module.exports = {
         }
       },
       {
-        // all files finished with .scss
-        test: /\.css$|\.scss$/,
+        // all files finished with .css or .scss
+        test: /\.s?css$/,
 
         // should be converted by Sass
         use: ["style-loader", "css-loader", "sass-loader"]
@@ -67,10 +66,14 @@ module.exports = {
   devtool: 'source-map',
 
   plugins: R.concat(
+    // Any environment plugins.
     [
-      // Environment Variables.
-      new DefinePlugin({
-        ENV: JSON.stringify(require('./.env.json'))
+      // Load environment variables.
+      new Dotenv(),
+
+      // Add NODE_ENV.
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
       }),
 
       // The React class should be a global constant, without need to be imported in every component.
@@ -78,18 +81,16 @@ module.exports = {
         React: 'react'
       })
     ],
+
+    // Specific environment plugins.
     R.cond([
       // Production plugins.
       [R.equals('production'), R.always([
-        new webpack.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify('production')
-          }
-        }),
         new UglifyJsPlugin()
       ])],
 
+      // Fallback
       [R.T, R.always([])]
-    ])(ENV)
+    ])(process.env.NODE_ENV)
   )
 }
