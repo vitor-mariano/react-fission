@@ -1,6 +1,9 @@
+# v0.7.0
+### Features
+- Change env files to improve deployments.
+
 # v0.6.0
 ### Features
-
 - Add Sass Lint
 - Refactor application styles
 - Turn whole application responsive
