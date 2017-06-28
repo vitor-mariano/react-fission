@@ -1,3 +1,7 @@
+# v0.7.1
+### Updates
+- Update deprecated Redux Saga functions.
+
 # v0.7.0
 ### Features
 - Change env files to improve deployments.
