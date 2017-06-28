@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeLatest } from 'redux-saga/effects';
 import HttpService from '../services/HttpService';
 
 import { ProfileTypes } from './profile/redux';
