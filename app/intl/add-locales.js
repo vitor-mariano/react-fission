@@ -4,7 +4,7 @@ import locales from './locales';
 
 addLocaleData(
   R.pipe(
-    /* eslint-disable */
+    /* eslint-disable global-require, import/no-dynamic-require */
     R.map(locale => require(`react-intl/locale-data/${locale}`)),
     /* eslint-enable */
     R.unnest,

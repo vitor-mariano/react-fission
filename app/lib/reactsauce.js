@@ -14,6 +14,9 @@ class ReactSauce {
       R.filter(
         R.is(String),
       ),
+      R.filter(
+        R.compose(R.not, R.isEmpty),
+      ),
       R.join(' '),
     )(arr);
   }

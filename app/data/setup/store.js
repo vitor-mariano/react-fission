@@ -20,7 +20,7 @@ const middlewares = [
   autoRehydrate(),
 ];
 
-/* eslint-disable */
+/* eslint-disable no-underscore-dangle */
 const reduxExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
 /* eslint-enable */
 

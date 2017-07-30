@@ -5,7 +5,7 @@ import locales from './locales';
 export default R.pipe(
   R.map(locale => R.assoc(
     locale,
-    /* eslint-disable */
+    /* eslint-disable global-require, import/no-dynamic-require */
     dot.dot(require(`./translations/${locale}.json`)),
     /* eslint-enable */
     {},
