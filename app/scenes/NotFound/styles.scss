@@ -1,1 +1,9 @@
 @import "../../appearance/abstract";
+
+.not-found-page {
+  margin-top: 3rem;
+  
+  &__title {
+    color: $text-color-inverse;
+  }
+}
