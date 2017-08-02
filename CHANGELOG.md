@@ -1,3 +1,11 @@
+# v0.8.0
+### Features
+- Add Jest
+- Add React Retina
+
+### Updates
+- Update React to v15.6.2
+
 # v0.7.1
 ### Updates
 - Update deprecated Redux Saga functions.
