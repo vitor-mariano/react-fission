@@ -1,4 +1,4 @@
-![React Fission](http://i.imgur.com/9chIyMg.png)
+<p align="center"><img src="http://svgshare.com/i/2UT.svg"></p>
 
 # About React Fission
 React Fission is a powerful starting project for ReactJS, based on [Ignite](https://github.com/infinitered/ignite).
