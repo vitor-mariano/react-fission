@@ -7,7 +7,7 @@
   "author": "Matheus Mariano <vmatheus.mariano@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "apisauce": "^0.11.0",
+    "apisauce": "^0.14.1",
     "babel-polyfill": "^6.23.0",
     "dot-object": "^1.5.4",
     "history": "^4.6.1",
@@ -22,10 +22,10 @@
     "react-retina-image": "^2.0.4",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.7",
-    "redux": "^3.6.0",
+    "redux": "^3.7.2",
     "redux-persist": "^4.8.0",
     "redux-saga": "^0.14.6",
-    "reduxsauce": "^0.4.1",
+    "reduxsauce": "^0.6.0",
     "seamless-immutable": "^7.0.1",
     "uuid": "^3.0.1"
   },
@@ -52,8 +52,8 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
