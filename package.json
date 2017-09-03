@@ -52,8 +52,8 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
