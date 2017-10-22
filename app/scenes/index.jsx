@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import {
-  BrowserRouter as Router,
-} from 'react-router-dom';
+import { BrowserRouter, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-import R from 'ramda';
+import * as R from 'ramda';
 import store, { history } from '../data/setup/store';
 import App from './Root/App';
 import locales from '../intl/locales';
@@ -51,7 +49,9 @@ class Root extends Component {
           messages={messages[this.state.locale]}
         >
           <Router history={history}>
-            <App />
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
           </Router>
         </IntlProvider>
       </Provider>

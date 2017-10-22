@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import R from 'ramda';
+import * as R from 'ramda';
 import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
@@ -71,7 +71,7 @@ class ProfileScene extends Component {
   }
 
   render() {
-    const profile = this.props.profile;
+    const { profile } = this.props;
 
     return (
       <div className="profile-page">

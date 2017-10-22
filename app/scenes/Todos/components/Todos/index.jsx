@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import R from 'ramda';
+import * as R from 'ramda';
 import TodosActions from '../../../../data/todos/redux';
 import CheckButton from '../../../../components/CheckButton/';
 import RS from '../../../../lib/reactsauce';

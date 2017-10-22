@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga/effects';
+import { all, takeLatest } from 'redux-saga/effects';
 import HttpService from '../services/HttpService';
 
 import { ProfileTypes } from './profile/redux';
@@ -10,8 +10,8 @@ import userRepositoriesRequest from './user_repositories/sagas';
 const http = HttpService.create();
 
 export default function* root() {
-  yield [
+  yield all([
     takeLatest(ProfileTypes.PROFILE_REQUEST, profileRequest, http),
     takeLatest(UserRepositoriesTypes.USER_REPOSITORIES_REQUEST, userRepositoriesRequest, http),
-  ];
+  ]);
 }
