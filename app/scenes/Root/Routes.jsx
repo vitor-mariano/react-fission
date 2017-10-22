@@ -7,7 +7,8 @@ export default function Routes() {
       {/* eslint-disable global-require */}
       <Route
         component={require('../Home/').default}
-        exact path="/"
+        exact
+        path="/"
       />
       <Route
         component={require('../Todos/').default}

@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import Actions, { reducer, INITIAL_STATE } from './redux';
 
 describe('Todos Redux', () => {
