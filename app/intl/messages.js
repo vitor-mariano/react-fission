@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import dot from 'dot-object';
 import locales from './locales';
 

@@ -1,5 +1,5 @@
 import { addLocaleData } from 'react-intl';
-import R from 'ramda';
+import * as R from 'ramda';
 import locales from './locales';
 
 addLocaleData(

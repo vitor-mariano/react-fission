@@ -16,9 +16,10 @@ React Fission follows the best practices and use powerful libraries for ReactJS,
 - [Apisauce - Talk with API without pain](https://github.com/skellock/apisauce)
 - [Redux Saga - An alternative side effect model for Redux](https://github.com/redux-saga/redux-saga/)
 - [React Intl - Internationalize React apps](https://github.com/yahoo/react-intl)
+- [React Retina - React component to serve Hi-Res images](https://github.com/KyleAMathews/react-retina-image)
 - [Ramda - Practical Functional JavaScript](https://github.com/ramda/ramda/)
 - [Webpack - An awesome web app bundler](https://github.com/webpack/webpack)
-- ~~[Jest - Painless JavaScript Testing](https://github.com/facebook/jest/)~~ *not implemented yet!
+- [Jest - Painless JavaScript Testing](https://github.com/facebook/jest/)
 
 ## Instalation
 

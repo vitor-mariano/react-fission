@@ -1,6 +1,6 @@
 import { createActions, createReducer } from 'reduxsauce';
 import Immutable from 'seamless-immutable';
-import R from 'ramda';
+import * as R from 'ramda';
 import uuid from 'uuid/v1';
 
 const { Types, Creators } = createActions({

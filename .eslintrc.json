@@ -25,5 +25,8 @@
   ],
   "globals": {
     "require": true
+  },
+  "rules": {
+    "function-paren-newline": 0
   }
 }

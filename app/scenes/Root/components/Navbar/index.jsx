@@ -28,6 +28,7 @@ class Navbar extends Component {
           <Link
             className="brand"
             to="/"
+            href="/"
           >
             <img
               alt="React Fission"
@@ -57,6 +58,7 @@ class Navbar extends Component {
             <li className="main-menu__item">
               <Link
                 className="main-menu__link"
+                href="/"
                 to="/"
               >
                 <FormattedMessage id="home.menu_title" />
@@ -65,6 +67,7 @@ class Navbar extends Component {
             <li className="main-menu__item">
               <Link
                 className="main-menu__link"
+                href="todos"
                 to="todos"
               >
                 <FormattedMessage id="todos.menu_title" />
@@ -73,6 +76,7 @@ class Navbar extends Component {
             <li className="main-menu__item">
               <Link
                 className="main-menu__link"
+                href="profile"
                 to="profile"
               >
                 <FormattedMessage id="profile.menu_title" />
