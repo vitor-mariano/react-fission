@@ -1,9 +1,19 @@
-![React Fission](http://i.imgur.com/9chIyMg.png)
+<p align="center"><img src="http://svgshare.com/i/2UT.svg"></p>
 
-# About React Fission
-React Fission is a powerful starting project for ReactJS, based on [Ignite](https://github.com/infinitered/ignite).
+<p align="center">A powerful starting project for ReactJS, based on <a href="https://github.com/infinitered/ignite">Ignite</a>.</p>
 
-### Powerful Features
+<p align="center">
+  <a href="https://travis-ci.org/matheusmariano/react-fission">
+    <img src="https://travis-ci.org/matheusmariano/react-fission.svg?branch=develop" alt="Build Status">
+  </a>
+  <a href="https://gitter.im/react-fission?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+    <img src="https://badges.gitter.im/Join_Chat.svg" alt="Gitter">
+  </a>
+</p>
+
+---
+
+## Powerful Features
 
 React Fission follows the best practices and use powerful libraries for ReactJS, as listed below.
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
