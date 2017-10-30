@@ -33,22 +33,16 @@ React Fission follows the best practices and use powerful libraries for ReactJS,
 
 ## Instalation
 
-You should install the command `create-project` first
+You must install the CLI
 
  NPM | Yarn
 -----|------
-`npm install -g create-project` | `yarn global add create-project`
+`npm install -g react-fission-cli` | `yarn global add react-fission-cli`
 
 and start a new React Fission project.
 
 ``` sh
-create-project your-project-name matheusmariano/react-fission
-```
-
-If you are looking for the development version, you should run
-
-``` sh
-create-project your-project-name matheusmariano/react-fission#develop
+fission new your-project-name
 ```
 
 Open your new project folder
@@ -57,34 +51,13 @@ Open your new project folder
 cd your-project-name
 ```
 
-and initiate your git repository.
-
-``` sh
-git init
-```
-
-> It's very important to initiate your git repository at this moment, before install node dependencies.
-Otherwise Husky will not work.
-
-Install all node dependencies.
+and start the development server.
 
 NPM | Yarn
 ----|-----
-`npm install` | `yarn install`
+`npm run dev` | `yarn dev`
 
-Paste your environment file from example.
-
-``` sh
-cp example.env .env
-```
-
-Finally start the development server.
-
-NPM | Yarn
-----|-----
-`npm run dev` | `yarn run dev`
-
-The application will be available at `localhost:8000`.
+The application should be available at `localhost:8000`.
 
 ## Building the app
 
@@ -92,7 +65,7 @@ Run the command
 
 NPM | Yarn
 ----|-----
-`npm run build` | `yarn run build`
+`npm run build` | `yarn build`
 
 The files should be compiled inside `public` folder. This is your app folder and you should use that
 to publish your app in production.
@@ -101,7 +74,7 @@ to publish your app in production.
 
 NPM | Yarn
 ----|-----
-`npm run command` | `yarn run command`
+`npm run command` | `yarn command`
 
 Command | Description
 --------|------------
