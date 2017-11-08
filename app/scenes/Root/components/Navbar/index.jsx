@@ -67,8 +67,8 @@ class Navbar extends Component {
             <li className="main-menu__item">
               <Link
                 className="main-menu__link"
-                href="todos"
-                to="todos"
+                href="/todos"
+                to="/todos"
               >
                 <FormattedMessage id="todos.menu_title" />
               </Link>
@@ -76,8 +76,8 @@ class Navbar extends Component {
             <li className="main-menu__item">
               <Link
                 className="main-menu__link"
-                href="profile"
-                to="profile"
+                href="/profile"
+                to="/profile"
               >
                 <FormattedMessage id="profile.menu_title" />
               </Link>
