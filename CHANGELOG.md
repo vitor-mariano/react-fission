@@ -1,5 +1,5 @@
 # v0.9.1
-## Fixes
+### Fixes
 - Fix bugs involving routes.
 - Fix `react-retina-image` version.
 
