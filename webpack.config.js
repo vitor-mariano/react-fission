@@ -38,11 +38,38 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react', 'stage-3'],
+          plugins: [
+            'transform-react-jsx',
+            [
+              'react-css-modules',
+              {
+                filetypes: {
+                  '.scss': {
+                    syntax: 'postcss-scss',
+                    plugins: ['postcss-nested'],
+                  },
+                },
+              },
+            ],
+          ],
         },
       },
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /app\/styles\/global\/.*\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /app\/styles\/global\/.*\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },

@@ -1,8 +1,8 @@
-@import "../../../../appearance/abstract";
+@import "../../../../styles/settings";
 
 $todos-component-size: 500px;
 
-.todos-component {
+.todos {
   background-color: $text-color-inverse;
   width: $todos-component-size;
 

@@ -21,7 +21,10 @@ class NotFoundScene extends Component {
 
   render() {
     return (
-      <section className="not-found-page text-center">
+      <section
+        className="text-center"
+        styleName="not-found-page"
+      >
         <FormattedMessage id="not_found.page_title">
           {message => (
             <Image
@@ -30,7 +33,10 @@ class NotFoundScene extends Component {
             />
           )}
         </FormattedMessage>
-        <h2 className="display-3 not-found-page__title">
+        <h2
+          className="display-3"
+          styleName="not-found-page__title"
+        >
           <FormattedMessage id="not_found.title" />
         </h2>
       </section>
