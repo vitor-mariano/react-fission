@@ -52,9 +52,12 @@
     "node-sass": "^4.5.3",
     "postcss-nested": "^2.1.2",
     "postcss-scss": "^1.0.2",
-    "sass-lint": "^1.12.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
+    "stylelint": "^8.2.0",
+    "stylelint-order": "^0.7.0",
+    "stylelint-scss": "^2.1.0",
+    "stylelint-selector-bem-pattern": "^2.0.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.7.1",
     "webpack-dev-server": "^2.9.1"
@@ -62,9 +65,9 @@
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
     "dev": "./node_modules/.bin/webpack-dev-server",
-    "fixcode": "./node_modules/.bin/eslint . --ext js,jsx --fix",
-    "lint": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx\" \"./node_modules/.bin/sass-lint -c .sass-lint.yml -v\" \"npm test\"",
-    "precommit": "npm run lint",
+    "fixcode": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx --fix\" \"./node_modules/.bin/stylelint 'app/**/*.scss' --fix\"",
+    "lint": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx\" \"./node_modules/.bin/stylelint 'app/**/*.scss'\"",
+    "precommit": "concurrently \"npm run lint\" \"npm run test\"",
     "test": "NODE_ENV=testing ./node_modules/.bin/jest"
   },
   "jest": {

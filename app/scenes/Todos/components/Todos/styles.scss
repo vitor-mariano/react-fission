@@ -1,4 +1,4 @@
-@import "../../../../styles/settings";
+@import '../../../../styles/settings';
 
 $todos-component-size: 500px;
 
@@ -72,7 +72,7 @@ $todos-component-size: 500px;
   }
 
   &:hover &__close-button::after {
-    content: "\D7";
+    content: '\D7';
     font-size: 2rem;
     position: absolute;
     right: 1rem;

@@ -1,4 +1,4 @@
-@import "../../../settings";
+@import '../../../settings';
 
 @each $media in (xs, sm, md, lg, xl) {
   @include media-breakpoint-down($media) {
