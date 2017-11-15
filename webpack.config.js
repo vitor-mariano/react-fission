@@ -2,6 +2,7 @@ const {
   DefinePlugin,
   ProvidePlugin,
 } = require('webpack');
+const R = require('ramda');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -9,7 +10,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const environment = process.env.NODE_ENV || 'development';
 
 let plugins = [
-  new Dotenv(),
+  new DefinePlugin({
+    'process.env': R.mapObjIndexed(JSON.stringify, process.env),
+  }),
   new DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(environment),
   }),
@@ -17,6 +20,12 @@ let plugins = [
     React: 'react',
   }),
 ];
+
+if (environment !== 'production') {
+  plugins = plugins.concat([
+    new Dotenv(),
+  ]);
+}
 
 if (environment === 'production') {
   plugins = plugins.concat([
