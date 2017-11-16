@@ -55,9 +55,11 @@ and start the development server.
 
 NPM | Yarn
 ----|-----
-`npm run dev` | `yarn dev`
+`npm run dev -- --open` | `yarn dev --open`
 
-The application should be available at `localhost:8000`.
+The application will be available at `localhost:8000`.
+
+*The parameter `--open` is optional. It makes your navigator open a new tab with `localhost:8000`.*
 
 ## Building the app
 
