@@ -18,7 +18,6 @@
 React Fission follows the best practices and use powerful libraries for ReactJS, as listed below.
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Airbnb CSS Style Guide](https://github.com/airbnb/css)
-- [Husky - Git hooks to prevent bad commits](https://github.com/typicode/husky)
 - [Redux - Predictable state container for JavaScript apps](https://github.com/reactjs/redux)
 - [Redux Persist - Persist and rehydrate a redux store](https://github.com/rt2zz/redux-persist)
 - [Reduxsauce - Provides a few tools for working with Redux](https://github.com/skellock/reduxsauce)
@@ -30,6 +29,8 @@ React Fission follows the best practices and use powerful libraries for ReactJS,
 - [Ramda - Practical Functional JavaScript](https://github.com/ramda/ramda/)
 - [Webpack - An awesome web app bundler](https://github.com/webpack/webpack)
 - [Jest - Painless JavaScript Testing](https://github.com/facebook/jest/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Husky - Git hooks to prevent bad commits](https://github.com/typicode/husky)
 
 ## Instalation
 
@@ -84,13 +85,7 @@ Command | Description
 `dev` | Start the webpack development server.
 `fixcode` | Fix basic linter issues.
 `lint` | List all linter issues.
-
-## Known issues
-
-#### Issue
-`Uncaught Error: Cannot find module [sass file path]`
-#### Solution
-Run `npm rebuild node-sass` and restart the development server.
+`test` | Run tests.
 
 ## License
 
