@@ -70,7 +70,7 @@ NPM | Yarn
 ----|-----
 `npm run build` | `yarn build`
 
-The files should be compiled inside `public` folder. This is your app folder and you should use that
+The files will be compiled inside `public` folder. This is your app folder and you must use this
 to publish your app in production.
 
 ## Available commands
