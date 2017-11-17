@@ -23,12 +23,15 @@ class TodosScene extends Component {
   render() {
     return (
       <div>
-        <header className="todos-page text-center">
-          <h1 className="todos-page__title display-3">
+        <header className="text-center">
+          <h1
+            className="display-3"
+            styleName="todos-page__title"
+          >
             <FormattedMessage id="todos.title" />
           </h1>
         </header>
-        <section className="todos-page__component">
+        <section styleName="todos-page__component">
           <Todos />
         </section>
       </div>

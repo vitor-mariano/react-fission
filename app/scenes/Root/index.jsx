@@ -4,40 +4,19 @@ import { BrowserRouter, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import * as R from 'ramda';
-import store, { history } from '../data/setup/store';
-import App from './Root/App';
-import locales from '../intl/locales';
-import messages from '../intl/messages';
-import '../intl/add-locales';
+import store, { history } from '../../data/setup/store';
+import App from './App';
+import { getLocale } from '../../intl/';
+import locales from '../../intl/locales';
+import messages from '../../intl/messages';
+import '../../intl/add-locales';
 
 class Root extends Component {
-  static getLocale(locale) {
-    return R.cond([
-      [
-        R.flip(R.has)(messages),
-        R.identity,
-      ],
-      [
-        R.pipe(
-          R.take(2),
-          R.flip(R.has)(messages),
-        ),
-        R.take(2),
-      ],
-      [
-        R.T,
-        R.always(
-          R.head(locales),
-        ),
-      ],
-    ])(locale);
-  }
-
   constructor(props) {
     super(props);
 
     this.state = {
-      locale: Root.getLocale(navigator.language),
+      locale: getLocale(navigator.language, R.head(locales), messages),
     };
   }
 
@@ -60,3 +39,5 @@ class Root extends Component {
 }
 
 render(<Root />, document.getElementById('app'));
+
+export default Root;

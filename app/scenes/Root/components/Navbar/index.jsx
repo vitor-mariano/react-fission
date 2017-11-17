@@ -23,30 +23,31 @@ class Navbar extends Component {
 
   render() {
     return (
-      <header className="navbar">
-        <div className="navbar__fixed">
+      <header styleName="navbar">
+        <div styleName="navbar__fixed">
           <Link
-            className="brand"
+            styleName="brand"
             to="/"
             href="/"
           >
             <img
               alt="React Fission"
-              className="brand__icon"
+              styleName="brand__icon"
               src="images/logo.svg"
             />
-            <h1 className="brand__text">React Fission</h1>
+            <h1 styleName="brand__text">React Fission</h1>
           </Link>
           <button
-            className="navbar__toggle-button hidden-md-up"
+            className="hidden-md-up"
             onClick={() => this.toggleMenu()}
+            styleName="navbar__toggle-button"
             type="button"
           >
             <i className="fa fa-bars" />
           </button>
         </div>
         <nav
-          className={
+          styleName={
             RS.classes({
               navbar__menu: true,
               'navbar__menu--open': this.state.menuSwitch === true,
@@ -54,37 +55,37 @@ class Navbar extends Component {
             })
           }
         >
-          <ul className="main-menu">
-            <li className="main-menu__item">
+          <ul styleName="main-menu">
+            <li styleName="main-menu__item">
               <Link
-                className="main-menu__link"
+                styleName="main-menu__link"
                 href="/"
                 to="/"
               >
                 <FormattedMessage id="home.menu_title" />
               </Link>
             </li>
-            <li className="main-menu__item">
+            <li styleName="main-menu__item">
               <Link
-                className="main-menu__link"
+                styleName="main-menu__link"
                 href="/todos"
                 to="/todos"
               >
                 <FormattedMessage id="todos.menu_title" />
               </Link>
             </li>
-            <li className="main-menu__item">
+            <li styleName="main-menu__item">
               <Link
-                className="main-menu__link"
+                styleName="main-menu__link"
                 href="/profile"
                 to="/profile"
               >
                 <FormattedMessage id="profile.menu_title" />
               </Link>
             </li>
-            <li className="main-menu__item">
+            <li styleName="main-menu__item">
               <a
-                className="main-menu__link"
+                styleName="main-menu__link"
                 href="https://github.com/matheusmariano/react-fission"
                 rel="noopener noreferrer"
                 target="_blank"

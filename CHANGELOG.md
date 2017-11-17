@@ -1,3 +1,12 @@
+# v0.9.1
+### Fixes
+- Fix bugs involving routes.
+- Fix `react-retina-image` version.
+
+# v0.9.0
+### Updates
+- Update all dependencies, including React to 16.0.0
+
 # v0.8.0
 ### Features
 - Add Jest

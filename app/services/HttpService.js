@@ -1,6 +1,7 @@
 import apisauce from 'apisauce';
+import config from '../config/';
 
-const create = (baseURL = process.env.API_URL) => {
+const create = (baseURL = config.api.url) => {
   const http = apisauce.create({
     baseURL,
     // header: {},

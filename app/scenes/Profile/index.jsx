@@ -20,23 +20,23 @@ class ProfileScene extends Component {
   static renderRepositories(repositories) {
     return R.map(repository => (
       <li
-        className="repository-card-list__item"
+        styleName="repository-card-list__item"
         key={repository.name}
       >
-        <div className="repository-card">
-          <p className="repository-card__name">
+        <div styleName="repository-card">
+          <p styleName="repository-card__name">
             <a href={repository.html_url}>{repository.name}</a>
           </p>
-          <p className="repository-card__description">{repository.description}</p>
-          <ul className="repository-card-data">
-            <li className="repository-card-data__item">
+          <p styleName="repository-card__description">{repository.description}</p>
+          <ul styleName="repository-card-data">
+            <li styleName="repository-card-data__item">
               <span>{repository.language}</span>
             </li>
-            <li className="repository-card-data__item">
+            <li styleName="repository-card-data__item">
               <i className="fa fa-fw fa-star" />
               <span>{repository.stargazers_count}</span>
             </li>
-            <li className="repository-card-data__item">
+            <li styleName="repository-card-data__item">
               <i className="fa fa-fw fa-code-fork" />
               <span>{repository.forks}</span>
             </li>
@@ -60,11 +60,11 @@ class ProfileScene extends Component {
 
   waitRepositories() {
     return !this.props.loadingRepositories ? (
-      <ul className="repository-card-list">
+      <ul styleName="repository-card-list">
         {ProfileScene.renderRepositories(this.props.repositories)}
       </ul>
     ) : (
-      <div className="profile-repositories__loader">
+      <div styleName="profile-repositories__loader">
         <i className="fa fa-pulse fa-spinner" />
       </div>
     );
@@ -74,47 +74,56 @@ class ProfileScene extends Component {
     const { profile } = this.props;
 
     return (
-      <div className="profile-page">
-        <div className="profile-page__wrapper">
-          <aside className="profile-aside">
+      <div styleName="profile-page">
+        <div styleName="profile-page__wrapper">
+          <aside styleName="profile-aside">
             <img
               alt="Matheus Mariano"
-              className="profile-aside__avatar"
+              styleName="profile-aside__avatar"
               src={profile.avatar_url}
             />
-            <h1 className="profile-aside__item profile-aside__name">{profile.name}</h1>
-            <h3 className="profile-aside__item profile-aside__username">{profile.login}</h3>
-            <hr className="profile-aside__hr" />
+            <h1 styleName="profile-aside__item profile-aside__name">{profile.name}</h1>
+            <h3 styleName="profile-aside__item profile-aside__username">{profile.login}</h3>
+            <hr styleName="profile-aside__hr" />
             {
               ProfileScene.renderIfExists(profile.company, (
-                <p className="profile-aside__item profile-aside__info">
-                  <i className="profile-aside__info-icon fa fa-fw fa-users" />
+                <p styleName="profile-aside__item profile-aside__info">
+                  <i
+                    className="fa fa-fw fa-users"
+                    styleName="profile-aside__info-icon"
+                  />
                   <span>{profile.company}</span>
                 </p>
               ))
             }
             {
               ProfileScene.renderIfExists(profile.location, (
-                <p className="profile-aside__item profile-aside__info">
-                  <i className="profile-aside__info-icon fa fa-fw fa-location-arrow" />
+                <p styleName="profile-aside__item profile-aside__info">
+                  <i
+                    className="fa fa-fw fa-location-arrow"
+                    styleName="profile-aside__info-icon"
+                  />
                   <span>{profile.location}</span>
                 </p>
               ))
             }
             {
               ProfileScene.renderIfExists(profile.email, (
-                <p className="profile-aside__item profile-aside__info">
-                  <i className="profile-aside__info-icon fa fa-fw fa-envelope" />
+                <p styleName="profile-aside__item profile-aside__info">
+                  <i
+                    className="fa fa-fw fa-envelope"
+                    styleName="profile-aside__info-icon"
+                  />
                   <a href="mailto:{profile.email}">{profile.email}</a>
                 </p>
               ))
             }
           </aside>
-          <section className="profile-page__content">
+          <section styleName="profile-page__content">
             <h1>
               <FormattedMessage id="profile.title" />
             </h1>
-            <div className="profile-repositories">
+            <div>
               {this.waitRepositories()}
             </div>
           </section>

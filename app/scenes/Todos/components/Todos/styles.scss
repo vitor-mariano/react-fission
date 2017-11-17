@@ -1,8 +1,8 @@
-@import "../../../../appearance/abstract";
+@import '../../../../styles/settings';
 
 $todos-component-size: 500px;
 
-.todos-component {
+.todos {
   background-color: $text-color-inverse;
   width: $todos-component-size;
 
@@ -72,7 +72,7 @@ $todos-component-size: 500px;
   }
 
   &:hover &__close-button::after {
-    content: "\D7";
+    content: '\D7';
     font-size: 2rem;
     position: absolute;
     right: 1rem;

@@ -6,25 +6,13 @@ import * as R from 'ramda';
 import TodosActions from '../../../../data/todos/redux';
 import CheckButton from '../../../../components/CheckButton/';
 import RS from '../../../../lib/reactsauce';
+import {
+  countTodosBy,
+  filterList,
+} from './functions';
 import './styles.scss';
 
 class Todos extends Component {
-  static countTodosBy(done, todos) {
-    return R.pipe(
-      R.countBy(R.prop('done')),
-      R.prop(R.toString(done)),
-      R.defaultTo(0),
-    )(todos);
-  }
-
-  static filterList(filter, list) {
-    return R.cond([
-      [R.equals('active'), () => R.filter(R.compose(R.not, R.prop('done')), list)],
-      [R.equals('completed'), () => R.filter(R.prop('done'), list)],
-      [R.T, R.always(list)],
-    ])(filter);
-  }
-
   static intl(id) {
     return `todos.components.todos.${id}`;
   }
@@ -80,7 +68,7 @@ class Todos extends Component {
   renderTodos(todos) {
     return R.map(todo => (
       <li
-        className={
+        styleName={
           RS.classes({
             'todo-item': true,
             'todo-item--checked': todo.done,
@@ -88,17 +76,17 @@ class Todos extends Component {
         }
         key={todo.uuid}
       >
-        <div className="todo-item__wrapper">
-          <div className="todo-item__check-button">
+        <div styleName="todo-item__wrapper">
+          <div styleName="todo-item__check-button">
             <CheckButton
               checked={todo.done}
               onClick={() => this.todoCheckDidPress(todo.uuid)}
             />
           </div>
-          <span className="todo-item__title">{todo.title}</span>
+          <span styleName="todo-item__title">{todo.title}</span>
         </div>
         <button
-          className="todo-item__close-button"
+          styleName="todo-item__close-button"
           onClick={() => this.removeTodoButtonDidClick(todo.uuid)}
           type="button"
         />
@@ -107,15 +95,15 @@ class Todos extends Component {
   }
 
   render() {
-    const done = Todos.countTodosBy(true, this.props.todos);
-    const undone = Todos.countTodosBy(false, this.props.todos);
+    const done = countTodosBy(true, this.props.todos);
+    const undone = countTodosBy(false, this.props.todos);
 
     return (
-      <div className="todos-component">
+      <div styleName="todos">
         <FormattedMessage id={Todos.intl('placeholder')}>
           {message => (
             <input
-              className="todos-component__new-task-input"
+              styleName="todos__new-task-input"
               onChange={event => this.titleInputDidChange(event)}
               onKeyPress={event => this.titleInputKeyDidPress(event)}
               placeholder={message}
@@ -124,22 +112,22 @@ class Todos extends Component {
             />
           )}
         </FormattedMessage>
-        <ol className="todo-list">
+        <ol styleName="todo-list">
           {
             this.renderTodos(
-              Todos.filterList(
+              filterList(
                 this.state.list,
                 this.props.todos,
               ),
             )
           }
         </ol>
-        <div className="todos-component__footer">
+        <div styleName="todos__footer">
           <FormattedMessage id={Todos.intl('undone')} values={{ itemCount: undone }} />
-          <div className="todos-controller">
-            <ul className="todos-controller__list">
+          <div styleName="todos-controller">
+            <ul styleName="todos-controller__list">
               <li
-                className={
+                styleName={
                   RS.classes({
                     'todos-controller__item': true,
                     'todos-controller__item--active': this.state.list === 'all',
@@ -147,7 +135,7 @@ class Todos extends Component {
                 }
               >
                 <button
-                  className="todos-button"
+                  styleName="todos-button"
                   onClick={() => this.setList('all')}
                   type="button"
                 >
@@ -155,7 +143,7 @@ class Todos extends Component {
                 </button>
               </li>
               <li
-                className={
+                styleName={
                   RS.classes({
                     'todos-controller__item': true,
                     'todos-controller__item--active': this.state.list === 'active',
@@ -163,7 +151,7 @@ class Todos extends Component {
                 }
               >
                 <button
-                  className="todos-button"
+                  styleName="todos-button"
                   onClick={() => this.setList('active')}
                   type="button"
                 >
@@ -171,7 +159,7 @@ class Todos extends Component {
                 </button>
               </li>
               <li
-                className={
+                styleName={
                   RS.classes({
                     'todos-controller__item': true,
                     'todos-controller__item--active': this.state.list === 'completed',
@@ -179,7 +167,7 @@ class Todos extends Component {
                 }
               >
                 <button
-                  className="todos-button"
+                  styleName="todos-button"
                   onClick={() => this.setList('completed')}
                   type="button"
                 >
@@ -191,7 +179,7 @@ class Todos extends Component {
           {
             done > 0 && (
               <button
-                className="todos-component__clear-button"
+                styleName="todos__clear-button"
                 onClick={() => this.clearButtonDidClick()}
                 type="button"
               >
