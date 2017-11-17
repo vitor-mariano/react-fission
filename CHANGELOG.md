@@ -1,3 +1,15 @@
+# 0.10.0
+### Features
+- Add CSS Modules.
+- Change style linter from sass-lint to stylelint.
+
+### Updates
+- Cover more features with tests.
+- Improve load speed.
+
+### Fixes
+- Fix lint command.
+
 # v0.9.1
 ### Fixes
 - Fix bugs involving routes.
