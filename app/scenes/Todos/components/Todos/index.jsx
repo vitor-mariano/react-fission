@@ -6,25 +6,13 @@ import * as R from 'ramda';
 import TodosActions from '../../../../data/todos/redux';
 import CheckButton from '../../../../components/CheckButton/';
 import RS from '../../../../lib/reactsauce';
+import {
+  countTodosBy,
+  filterList,
+} from './functions';
 import './styles.scss';
 
 class Todos extends Component {
-  static countTodosBy(done, todos) {
-    return R.pipe(
-      R.countBy(R.prop('done')),
-      R.prop(R.toString(done)),
-      R.defaultTo(0),
-    )(todos);
-  }
-
-  static filterList(filter, list) {
-    return R.cond([
-      [R.equals('active'), () => R.filter(R.compose(R.not, R.prop('done')), list)],
-      [R.equals('completed'), () => R.filter(R.prop('done'), list)],
-      [R.T, R.always(list)],
-    ])(filter);
-  }
-
   static intl(id) {
     return `todos.components.todos.${id}`;
   }
@@ -107,8 +95,8 @@ class Todos extends Component {
   }
 
   render() {
-    const done = Todos.countTodosBy(true, this.props.todos);
-    const undone = Todos.countTodosBy(false, this.props.todos);
+    const done = countTodosBy(true, this.props.todos);
+    const undone = countTodosBy(false, this.props.todos);
 
     return (
       <div styleName="todos">
@@ -127,7 +115,7 @@ class Todos extends Component {
         <ol styleName="todo-list">
           {
             this.renderTodos(
-              Todos.filterList(
+              filterList(
                 this.state.list,
                 this.props.todos,
               ),
