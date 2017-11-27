@@ -17,7 +17,6 @@
 
 React Fission follows the best practices and use powerful libraries for ReactJS, as listed below.
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-- [Airbnb CSS Style Guide](https://github.com/airbnb/css)
 - [Redux - Predictable state container for JavaScript apps](https://github.com/reactjs/redux)
 - [Redux Persist - Persist and rehydrate a redux store](https://github.com/rt2zz/redux-persist)
 - [Reduxsauce - Provides a few tools for working with Redux](https://github.com/skellock/reduxsauce)
