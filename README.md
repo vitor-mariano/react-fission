@@ -1,6 +1,6 @@
 <p align="center"><img src="http://svgshare.com/i/2UT.svg"></p>
 
-<p align="center">A powerful starting project for ReactJS, based on <a href="https://github.com/infinitered/ignite">Ignite</a>.</p>
+<p align="center">A powerful starting project for ReactJS.</p>
 
 <p align="center">
   <a href="https://travis-ci.org/matheusmariano/react-fission">
