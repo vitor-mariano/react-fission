@@ -15,8 +15,8 @@
     "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.6",
     "react-retina-image": "^2.0.5",
@@ -63,12 +63,12 @@
     "webpack-dev-server": "^2.9.1"
   },
   "scripts": {
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack",
-    "dev": "./node_modules/.bin/webpack-dev-server",
-    "fixcode": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx --fix\" \"./node_modules/.bin/stylelint 'app/**/*.scss' --fix\"",
-    "lint": "concurrently \"./node_modules/.bin/eslint . --ext js,jsx\" \"./node_modules/.bin/stylelint 'app/**/*.scss'\"",
+    "build": "NODE_ENV=production npx webpack",
+    "dev": "npx webpack-dev-server --progress --inline",
+    "fixcode": "concurrently \"npx eslint . --ext js,jsx --fix\" \"npx stylelint 'app/**/*.scss' --fix\"",
+    "lint": "concurrently \"npx eslint . --ext js,jsx\" \"npx stylelint 'app/**/*.scss'\"",
     "precommit": "concurrently \"npm run lint\" \"npm run test\"",
-    "test": "NODE_ENV=testing ./node_modules/.bin/jest"
+    "test": "NODE_ENV=testing npx jest"
   },
   "jest": {
     "moduleDirectories": [

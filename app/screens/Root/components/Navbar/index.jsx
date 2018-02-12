@@ -43,7 +43,7 @@ class Navbar extends Component {
             styleName="navbar__toggle-button"
             type="button"
           >
-            <i className="fa fa-bars" />
+            <i className="fas fa-bars" />
           </button>
         </div>
         <nav

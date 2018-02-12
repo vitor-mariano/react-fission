@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import * as R from 'ramda';
 import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
@@ -13,12 +12,8 @@ class ProfileScene extends Component {
     };
   }
 
-  static renderIfExists(param, component) {
-    return param && component;
-  }
-
   static renderRepositories(repositories) {
-    return R.map(repository => (
+    return repositories.map(repository => (
       <li
         styleName="repository-card-list__item"
         key={repository.name}
@@ -33,17 +28,17 @@ class ProfileScene extends Component {
               <span>{repository.language}</span>
             </li>
             <li styleName="repository-card-data__item">
-              <i className="fa fa-fw fa-star" />
+              <i className="fas fa-fw fa-star" />
               <span>{repository.stargazers_count}</span>
             </li>
             <li styleName="repository-card-data__item">
-              <i className="fa fa-fw fa-code-fork" />
+              <i className="fas fa-fw fa-code-branch" />
               <span>{repository.forks}</span>
             </li>
           </ul>
         </div>
       </li>
-    ), repositories);
+    ));
   }
 
   componentWillMount() {
@@ -65,7 +60,7 @@ class ProfileScene extends Component {
       </ul>
     ) : (
       <div styleName="profile-repositories__loader">
-        <i className="fa fa-pulse fa-spinner" />
+        <i className="fas fa-pulse fa-spinner" />
       </div>
     );
   }
@@ -86,37 +81,37 @@ class ProfileScene extends Component {
             <h3 styleName="profile-aside__item profile-aside__username">{profile.login}</h3>
             <hr styleName="profile-aside__hr" />
             {
-              ProfileScene.renderIfExists(profile.company, (
+              profile.company && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-users"
+                    className="fas fa-fw fa-users"
                     styleName="profile-aside__info-icon"
                   />
                   <span>{profile.company}</span>
                 </p>
-              ))
+              )
             }
             {
-              ProfileScene.renderIfExists(profile.location, (
+              profile.location && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-location-arrow"
+                    className="fas fa-fw fa-location-arrow"
                     styleName="profile-aside__info-icon"
                   />
                   <span>{profile.location}</span>
                 </p>
-              ))
+              )
             }
             {
-              ProfileScene.renderIfExists(profile.email, (
+              profile.email && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-envelope"
+                    className="fas fa-fw fa-envelope"
                     styleName="profile-aside__info-icon"
                   />
                   <a href="mailto:{profile.email}">{profile.email}</a>
                 </p>
-              ))
+              )
             }
           </aside>
           <section styleName="profile-page__content">
