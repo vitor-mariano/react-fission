@@ -33,11 +33,11 @@ class ProfileScene extends Component {
               <span>{repository.language}</span>
             </li>
             <li styleName="repository-card-data__item">
-              <i className="fa fa-fw fa-star" />
+              <i className="fas fa-fw fa-star" />
               <span>{repository.stargazers_count}</span>
             </li>
             <li styleName="repository-card-data__item">
-              <i className="fa fa-fw fa-code-fork" />
+              <i className="fas fa-fw fa-code-branch" />
               <span>{repository.forks}</span>
             </li>
           </ul>
@@ -65,7 +65,7 @@ class ProfileScene extends Component {
       </ul>
     ) : (
       <div styleName="profile-repositories__loader">
-        <i className="fa fa-pulse fa-spinner" />
+        <i className="fas fa-pulse fa-spinner" />
       </div>
     );
   }
@@ -89,7 +89,7 @@ class ProfileScene extends Component {
               ProfileScene.renderIfExists(profile.company, (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-users"
+                    className="fas fa-fw fa-users"
                     styleName="profile-aside__info-icon"
                   />
                   <span>{profile.company}</span>
@@ -100,7 +100,7 @@ class ProfileScene extends Component {
               ProfileScene.renderIfExists(profile.location, (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-location-arrow"
+                    className="fas fa-fw fa-location-arrow"
                     styleName="profile-aside__info-icon"
                   />
                   <span>{profile.location}</span>
@@ -111,7 +111,7 @@ class ProfileScene extends Component {
               ProfileScene.renderIfExists(profile.email, (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
-                    className="fa fa-fw fa-envelope"
+                    className="fas fa-fw fa-envelope"
                     styleName="profile-aside__info-icon"
                   />
                   <a href="mailto:{profile.email}">{profile.email}</a>
