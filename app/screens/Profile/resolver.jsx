@@ -4,8 +4,17 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProfileScene from './';
 import ProfileActions from '../../data/profile/redux';
+import './styles.scss';
 
 class ProfileSceneResolver extends Component {
+  static renderLoader() {
+    return (
+      <div styleName="resolver-container__loader">
+        <i className="fas fa-spinner fa-pulse fa-2x" />
+      </div>
+    );
+  }
+
   componentWillMount() {
     if (!this.props.isProfileStored) {
       this.props.requestProfile('matheusmariano');
@@ -13,7 +22,9 @@ class ProfileSceneResolver extends Component {
   }
 
   render() {
-    return this.props.success && <ProfileScene />;
+    return this.props.success ?
+      <ProfileScene /> :
+      ProfileSceneResolver.renderLoader();
   }
 }
 

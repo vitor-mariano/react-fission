@@ -159,3 +159,11 @@
     }
   }
 }
+
+.resolver-container {
+  &__loader {
+    color: $text-color-inverse;
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
