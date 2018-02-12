@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import * as R from 'ramda';
 import UserRepositoriesActions from '../../data/user_repositories/redux';
 import './styles.scss';
 
@@ -13,12 +12,8 @@ class ProfileScene extends Component {
     };
   }
 
-  static renderIfExists(param, component) {
-    return param && component;
-  }
-
   static renderRepositories(repositories) {
-    return R.map(repository => (
+    return repositories.map(repository => (
       <li
         styleName="repository-card-list__item"
         key={repository.name}
@@ -43,7 +38,7 @@ class ProfileScene extends Component {
           </ul>
         </div>
       </li>
-    ), repositories);
+    ));
   }
 
   componentWillMount() {
@@ -86,7 +81,7 @@ class ProfileScene extends Component {
             <h3 styleName="profile-aside__item profile-aside__username">{profile.login}</h3>
             <hr styleName="profile-aside__hr" />
             {
-              ProfileScene.renderIfExists(profile.company, (
+              profile.company && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
                     className="fas fa-fw fa-users"
@@ -94,10 +89,10 @@ class ProfileScene extends Component {
                   />
                   <span>{profile.company}</span>
                 </p>
-              ))
+              )
             }
             {
-              ProfileScene.renderIfExists(profile.location, (
+              profile.location && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
                     className="fas fa-fw fa-location-arrow"
@@ -105,10 +100,10 @@ class ProfileScene extends Component {
                   />
                   <span>{profile.location}</span>
                 </p>
-              ))
+              )
             }
             {
-              ProfileScene.renderIfExists(profile.email, (
+              profile.email && (
                 <p styleName="profile-aside__item profile-aside__info">
                   <i
                     className="fas fa-fw fa-envelope"
@@ -116,7 +111,7 @@ class ProfileScene extends Component {
                   />
                   <a href="mailto:{profile.email}">{profile.email}</a>
                 </p>
-              ))
+              )
             }
           </aside>
           <section styleName="profile-page__content">
