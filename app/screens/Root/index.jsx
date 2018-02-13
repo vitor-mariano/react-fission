@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { BrowserRouter, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider } from 'react-intl';
@@ -37,7 +36,5 @@ class Root extends Component {
     );
   }
 }
-
-render(<Root />, document.getElementById('app'));
 
 export default Root;

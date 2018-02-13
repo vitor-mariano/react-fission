@@ -34,7 +34,7 @@ if (environment === 'production') {
 }
 
 module.exports = {
-  entry: './app/screens/Root/index.jsx',
+  entry: './app/index.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.js',
