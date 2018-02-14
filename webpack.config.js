@@ -48,6 +48,7 @@ module.exports = {
         query: {
           presets: ['es2015', 'react', 'stage-3'],
           plugins: [
+            'ramda',
             'transform-react-jsx',
             [
               'react-css-modules',
